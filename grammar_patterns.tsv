@@ -1,5 +1,5 @@
 structure	structure_verbose	grew_pattern_sud	grew_pattern_ud
-没 + 有 (+ Obj.)	"Negation of ""you"" with ""mei"""	pattern { pattern { GOV -[mod]-> DEP; GOV.form = "有"; DEP.form = "没" } }	pattern {  }
+没 + 有 (+ Obj.)	"Negation of ""you"" with ""mei"""	pattern { GOV -[mod]-> DEP; GOV.form = "有"; DEP.form = "没" }	pattern {  }
 Subj. + 不 + Verb + Obj.	"Standard negation with ""bu"""	pattern { GOV -[mod]-> DEP; GOV[upos = VERB|AUX]; DEP.form = "不"; GOV -[1=comp]-> OBJ; OBJ>>GOV }	pattern {  }
 Subj. + 不 + Adj.	"Standard negation with ""bu"""	pattern { ADJ -[mod]-> BU; ADJ[upos = ADJ]; BU[form = "不"]; ADJ-[subj]->SUBJ }	pattern {  }
 Subj. + 都 + [Verb Phrase]	"The ""all"" adverb ""dou"""	pattern { TODO }	pattern {  }
