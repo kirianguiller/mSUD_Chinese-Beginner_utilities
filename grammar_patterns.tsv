@@ -1,0 +1,777 @@
+structure	structure_verbose	grew_pattern_sud	grew_pattern_ud
+没 + 有 (+ Obj.)	"Negation of ""you"" with ""mei"""	pattern { pattern { GOV -[mod]-> DEP; GOV.form = "有"; DEP.form = "没" } }	pattern {  }
+Subj. + 不 + Verb + Obj.	"Standard negation with ""bu"""	pattern { GOV -[mod]-> DEP; GOV[upos = VERB|AUX]; DEP.form = "不"; GOV -[1=comp]-> OBJ; OBJ>>GOV }	pattern {  }
+Subj. + 不 + Adj.	"Standard negation with ""bu"""	pattern { ADJ -[mod]-> BU; ADJ[upos = ADJ]; BU[form = "不"]; ADJ-[subj]->SUBJ }	pattern {  }
+Subj. + 都 + [Verb Phrase]	"The ""all"" adverb ""dou"""	pattern { TODO }	pattern {  }
+Subj. + 也 + Verb / [Verb Phrase]	"The ""also"" adverb ""ye"""	pattern { YE[form="也"]; PRED -[mod]-> YE; PRED -[subj]-> SUBJ; PRED[upos=VERB|AUX] }	pattern {  }
+Subj. + 也 (+ Adv.) + Adj.	"The ""also"" adverb ""ye"""	pattern { YE[form="也"]; PRED -[mod]-> YE; PRED -[subj]-> SUBJ; PRED[upos=ADJ] }	pattern {  }
+Noun 1 + 和 + Noun 2	"Expressing ""and"" with ""he"""	pattern { HE[form="和", upos=CCONJ]; }	pattern {  }
+Option A + 还是 + Option B ?	"Offering choices with ""haishi"""	pattern { HAI[form="还"]; SHI[form="是"]; HAI -> SHI; HAI -[deep=m]->SHI; HAI[upos=CCONJ]  }	pattern {  }
+Subj. + Verb + Option A + 还是 + Option B ?	"Offering choices with ""haishi"""	pattern { VERB->OPTION1; VERB -[subj]->SUBJ; OPTION1->OPTION2; OPTION2->HAI;  HAI[form="还"]; SHI[form="是"]; HAI -> SHI; HAI -[deep=m]->SHI; HAI[upos=CCONJ] }	pattern {  }
+Subj. + Number + 岁	"Age with ""sui"""	pattern { SUI [form="岁"]; SUI-[subj]->SUBJ; SUI-[mod]->NUM }	pattern {  }
+Number + 个 + Noun	"Measure word ""ge"""	pattern { NOUN -[clf]->GE; GE[form="个"] }	pattern {  }
+Verb + 个 + Noun	"Measure word ""ge"""	pattern { VERB-[1=comp]->NOUN ;NOUN -[clf]->GE; GE[form="个"] }	pattern {  }
+x 年 + y 月 + z 日	Structure of dates	pattern {DAY[form="日"];  MONTH[form="月"] ;YEAR [form="年"] }	pattern {  }
+x 年 + y 月 + z 号	Structure of dates	pattern {DAY[form="号"];  MONTH[form="月"] ;YEAR [form="年"] }	pattern {  }
+(Date and/or time of day +) x 点	Structure of times (basic)	pattern {HOUR[form="点", upos=NOUN]; }	pattern {  }
+x 点 + 半	Structure of times (basic)	pattern {HOUR[form="点", upos=NOUN]; HOUR->HALF; HALF[form="半"]}	pattern {  }
+Pronoun + Noun	"Expressing close possession without ""de"""	pattern { N[upos=NOUN|PROPN]; N-[mod]->POSSESS; POSSESS[upos=PRON|NOUN|PROPN]}	pattern {  }
+Noun 1 + 的 + Noun 2	"Expressing possession with ""de"""	pattern { N[upos=NOUN|PROPN]; N-[mod]->DE; DE[form="的"]}	pattern {  }
+[Missing Person / Thing] + 呢 ？	"Questions with ""ne"""	pattern { NE[form="呢"]}	pattern {  }
+Command + 吧	"Suggestions with ""ba"""	pattern { BA[form="吧"]; GOV-[discourse]->BA}	pattern {  }
+Subj. + 在 + Place	"Expressing existence in a place with ""zai"""	pattern { ZAI[form="在", upos=VERB];  ZAI-[1=comp]->PLACE; PLACE[upos=NOUN|PROPN]}	pattern {  }
+Place + 有 + Obj.	"Expressing existence with ""you"""	pattern pattern { YOU[form="有", upos=VERB]; YOU-[1=comp]->NOUN; NOUN[upos=NOUN|PROPN]; YOU-[mod@loc]->PLACE;}	pattern {  }
+Subj. + 有 + Obj.	"Expressing possession with ""you"""	pattern {  }	pattern {  }
+Subj. + 叫 + [Name]	"Using the verb ""jiao"""	pattern {  }	pattern {  }
+Subj. + 去 + [Place]	"Using the verb ""qu"""	pattern {  }	pattern {  }
+Subj. + 去 + Verb	"Using the verb ""qu"""	pattern {  }	pattern {  }
+Subj. + 姓 + [Surname]	"Using the verb ""xing"""	pattern {  }	pattern {  }
+Subj. + 能 + Verb + Obj.	"Expressing ability or possibility with ""neng"""	pattern {  }	pattern {  }
+Subj. + 会 + Verb + Obj.	"Expressing a learned skill with ""hui"""	pattern {  }	pattern {  }
+Subj. + 不 + 会 + Verb + Obj.	"Expressing a learned skill with ""hui"""	pattern {  }	pattern {  }
+Subj. + Time + 要 + Verb	"Expressing ""be going to"" with ""yao"""	pattern {  }	pattern {  }
+Time + Subj. + 要 + Verb	"Expressing ""be going to"" with ""yao"""	pattern {  }	pattern {  }
+Subj. + 可以 + Verb + Obj.	"Expressing permission with ""keyi"""	pattern {  }	pattern {  }
+Subj. + 不 + 可以 + Verb + Obj.	"Expressing permission with ""keyi"""	pattern {  }	pattern {  }
+Subj. + 要 + Verb + Obj.	"Wanting to do something with ""yao"""	pattern {  }	pattern {  }
+Subj. + 怎么 + Verb + Obj.	"How to do something with ""zenme"""	pattern {  }	pattern {  }
+Topic + 怎么 + Verb	"How to do something with ""zenme"""	pattern {  }	pattern {  }
+Subj. + 没有 / 没 + Verb	"Negation of past actions with ""meiyou"""	pattern {  }	pattern {  }
+不要 + Verb	"Negative commands with ""buyao"""	pattern {  }	pattern {  }
+Noun 1 + 是 + Noun 2	"Connecting nouns with ""shi"""	pattern {  }	pattern {  }
+太 + Adj. + 了	"Expressing ""excessively"" with ""tai"""	pattern {  }	pattern {  }
+Noun + 很 + Adj.	"Simple ""noun + adjective"" sentences"	pattern {  }	pattern {  }
+Verb + 不 + Verb	Affirmative-negative question	pattern {  }	pattern {  }
+Subj. + Verb + 不 + Verb + Obj.	Affirmative-negative question	pattern {  }	pattern {  }
+Adj. + 不 + Adj.	Affirmative-negative question	pattern {  }	pattern {  }
+[First Character of Verb] + 不 + Verb	Affirmative-negative question	pattern {  }	pattern {  }
+[First Character of Adj.] + 不 + Adj.	Affirmative-negative question	pattern {  }	pattern {  }
+Subj. + 有 没有 + Obj.	Affirmative-negative question	pattern {  }	pattern {  }
+Verb + 不 + Verb	"Tag questions with ""bu"""	pattern {  }	pattern {  }
+⋯⋯， 好 / 对 / 是 / 可以 +  吗？	"Tag questions with ""ma"""	pattern {  }	pattern {  }
+[Statement] + 吗 ？	"Yes-no questions with ""ma"""	pattern {  }	pattern {  }
+Subj. + Number + 岁 + 半	"Age with ""sui"""	pattern {  }	pattern {  }
+Adj. + 死了	"Negative adjectives with ""-si le"""	pattern {  }	pattern {  }
+Subj. + 差不多	"Approximations with ""chabuduo"""	pattern {  }	pattern {  }
+A + 跟 / 和 +  B + 差不多	"Approximations with ""chabuduo"""	pattern {  }	pattern {  }
+差不多 + Adj. / Verb	"Approximations with ""chabuduo"""	pattern {  }	pattern {  }
+差不多 ＋ [Quantity Phrase] / [Time Phrase]	"Approximations with ""chabuduo"""	pattern {  }	pattern {  }
+Subj. + 都 + Verb + Obj.	"Emphasizing quantity with ""dou"""	pattern {  }	pattern {  }
+Subj. + 在 + Verb + Obj.	"Expressing actions in progress with ""zai"""	pattern {  }	pattern {  }
+Subj. + 正在 + Verb + Obj.	"Expressing actions in progress with ""zai"""	pattern {  }	pattern {  }
+Subj. + 一直 + Predicate	"Expressing ""all along"" with ""yizhi"""	pattern {  }	pattern {  }
+已经 + [Verb Phrase] + 了	"Expressing ""already"" with ""yijing"""	pattern {  }	pattern {  }
+已经 + (很 +) Adj. + 了	"Expressing ""already"" with ""yijing"""	pattern {  }	pattern {  }
+已经 + Time + 了	"Expressing ""already"" with ""yijing"""	pattern {  }	pattern {  }
+已经 + 不 + Verb + 了	"Expressing ""already"" with ""yijing"""	pattern {  }	pattern {  }
+Subj. + 总是 + Verb	"Expressing ""always"" with ""zongshi"""	pattern {  }	pattern {  }
+总是 + Adv. + Adj.	"Expressing ""always"" with ""zongshi"""	pattern {  }	pattern {  }
+Subj. + Verb + Obj. 1， 还 + Verb + Obj. 2	"Expressing ""and also"" with ""hai"""	pattern {  }	pattern {  }
+Subj. + 刚 + Verb	"Expressing ""just"" with ""gang"""	pattern {  }	pattern {  }
+Subj. + 刚 + Verb (+ Obj.)  + Duration	"Expressing ""just"" with ""gang"""	pattern {  }	pattern {  }
+只 + Verb	"Expressing ""only"" with ""zhi"""	pattern {  }	pattern {  }
+别 + Verb (+ Obj.)	"Negative commands with ""bie"""	pattern {  }	pattern {  }
+Subj. + 多 + Adj. ?	"Asking about degree with ""duo"""	pattern {  }	pattern {  }
+Noun 1 + 跟 / 和 + Noun 2 + 一样	"Basic comparisons with ""yiyang"""	pattern {  }	pattern {  }
+Noun 1 + 跟 / 和 + Noun 2 + 一样 + Adj.	"Basic comparisons with ""yiyang"""	pattern {  }	pattern {  }
+Subj. + 有一点(儿) + Adj.	"Expressing ""a little too"" with ""you dian"""	pattern {  }	pattern {  }
+Subj. + 有点(儿) + Adj.	"Expressing ""a little too"" with ""you dian"""	pattern {  }	pattern {  }
+更 + Adj.	"Expressing ""even more"" with ""geng"""	pattern {  }	pattern {  }
+Time / Verb + 以后, ....	"After a specific time with ""yihou"""	pattern {  }	pattern {  }
+几 + Measure Word + Noun	"Using ""ji"" to mean ""several"""	pattern {  }	pattern {  }
+好几 + Measure Word + Noun	"Using ""ji"" to mean ""several"""	pattern {  }	pattern {  }
+Subj. + Adj. + 了	"Change of state with ""le"""	pattern {  }	pattern {  }
+Subj. + Verb + 了	"Change of state with ""le"""	pattern {  }	pattern {  }
+Subj. + 不 + Verb + 了	"Change of state with ""le"""	pattern {  }	pattern {  }
+Subj. + Verb + 了	"Expressing completion with ""le"""	pattern {  }	pattern {  }
+Subj. + Time + Verb + 了 + Obj.	"Expressing completion with ""le"""	pattern {  }	pattern {  }
+Time + Subj. + Verb + 了 + Obj.	"Expressing completion with ""le"""	pattern {  }	pattern {  }
+Subj. + Verb + 了 + [Number + Measure Word] + Obj.	"Expressing completion with ""le"""	pattern {  }	pattern {  }
+Subj. + Verb + Obj. + 了	"Expressing completion with ""le"""	pattern {  }	pattern {  }
+Subj. + 来 / 去 + Place + Verb / [Verb Phrase] + 了	"Expressing completion with ""le"""	pattern {  }	pattern {  }
+[New Situation] + 了	"Expressing ""now"" with ""le"""	pattern {  }	pattern {  }
+Statement + 呢	"Modal particle ""ne"""	pattern {  }	pattern {  }
+Subj. + 要 + Verb	"Auxiliary verb ""yao"" and its multiple meanings"	pattern {  }	pattern {  }
+Subj. + 会 + Verb + Obj.	"Expressing ""will"" with ""hui"""	pattern {  }	pattern {  }
+Subj. + 不 + 会 + Verb + Obj.	"Expressing ""will"" with ""hui"""	pattern {  }	pattern {  }
+Subj. + 想 + Verb (+ Obj.)	"Expressing ""would like to"" with ""xiang"""	pattern {  }	pattern {  }
+Subj. + 不 + 想 + Verb + Obj.	"Expressing ""would like to"" with ""xiang"""	pattern {  }	pattern {  }
+Subj. + 到 + Place + Verb Phrase	"Using ""dao"" to mean ""to go to"""	pattern {  }	pattern {  }
+Subj. + Verb + 完 + 了	"Result complement ""-wan"" for finishing"	pattern {  }	pattern {  }
+Subj. + Verb + 完 + Obj. + 了	"Result complement ""-wan"" for finishing"	pattern {  }	pattern {  }
+快 + Adj. + 了	"Expressing ""about to happen"" with ""le"""	pattern {  }	pattern {  }
+Subj. + 要 + Verb / Adj. + 了	"Expressing ""about to happen"" with ""le"""	pattern {  }	pattern {  }
+Topic (+ Subj.) + 什么 + 都 / 也 + Verb / Adj.	"Expressing ""everything"" with ""shenme dou"""	pattern {  }	pattern {  }
+什么 + Noun + 都 + Verb	"Expressing ""everything"" with ""shenme dou"""	pattern {  }	pattern {  }
+什么 + Noun + 都 / 也 + 没 (有) + Verb	"Expressing ""everything"" with ""shenme dou"""	pattern {  }	pattern {  }
+在 + Place	"Expressing location with ""zai... shang / xia / li"""	pattern {  }	pattern {  }
+别 + Verb / [Verb Phrase] + 了	"Expressing ""stop doing"" with ""bie… le"""	pattern {  }	pattern {  }
+A 比 B + 更 + Adj.	"Expressing ""even more"" with ""geng"""	pattern {  }	pattern {  }
+(Subj.) + Verb / Adj. + 的 时候, ....	"Expressing ""when"" with ""de shihou"""	pattern {  }	pattern {  }
+以后 + Subj. + Verb + Obj.	"In the future in general with ""yihou"""	pattern {  }	pattern {  }
+Subj. + 以后 + Verb + Obj.	"In the future in general with ""yihou"""	pattern {  }	pattern {  }
+Number + (Number + 1)	Approximating with sequential numbers	pattern {  }	pattern {  }
+x 点 零 y 分	Structure of times (advanced)	pattern {  }	pattern {  }
+x 点 y 分	Structure of times (advanced)	pattern {  }	pattern {  }
+x 点 y 刻	Structure of times (advanced)	pattern {  }	pattern {  }
+几 + 十 + Measure Word + Noun	"Using ""ji"" to mean ""several"""	pattern {  }	pattern {  }
+几 + 百 / 千 / 万 + Measure Word + Noun	"Using ""ji"" to mean ""several"""	pattern {  }	pattern {  }
+Subj. + Verb + 过 + Obj.	"Expressing experiences with ""guo"""	pattern {  }	pattern {  }
+Subj. + 没 + Verb + 过 + Obj.	"Expressing experiences with ""guo"""	pattern {  }	pattern {  }
+不 + [Verb Phrase] + 了	"Expressing ""not anymore"" with ""le"""	pattern {  }	pattern {  }
+没(有) + [Noun Phrase] + 了	"Expressing ""not anymore"" with ""le"""	pattern {  }	pattern {  }
+已经 + 不 + [Verb Phrase] + 了	"Expressing ""not anymore"" with ""le"""	pattern {  }	pattern {  }
+Statement + 吧	"Softening speech with ""ba"""	pattern {  }	pattern {  }
+的 + Noun	"Structural particle ""de"""	pattern {  }	pattern {  }
+Verb + 得	"Structural particle ""de"""	pattern {  }	pattern {  }
+Verb + 过 + Obj. + 了	"Using ""guo"" with ""le"""	pattern {  }	pattern {  }
+Noun 1 + 比 + Noun 2 + Adj.	"Basic comparisons with ""bi"""	pattern {  }	pattern {  }
+Noun 1 + 比 + Noun 2 + 更 + Adj.	"Basic comparisons with ""bi"""	pattern {  }	pattern {  }
+Noun 1 + 没有 + Noun 2 + Adj.	"Basic comparisons with ""meiyou"""	pattern {  }	pattern {  }
+来 / 去 + Place	"Directional verbs ""lai"" and ""qu"""	pattern {  }	pattern {  }
+请 + Verb	"Polite requests with ""qing"""	pattern {  }	pattern {  }
+请 (+ 你) + Verb Phrase	"Polite requests with ""qing"""	pattern {  }	pattern {  }
+Subj. + 要 + Noun	"Auxiliary verb ""yao"" and its multiple meanings"	pattern {  }	pattern {  }
+Subj. + 应该 + Verb + Obj.	"Expressing ""should"" with ""yinggai"""	pattern {  }	pattern {  }
+Subj. + 不 + 应该 + Verb + Obj.	"Expressing ""should"" with ""yinggai"""	pattern {  }	pattern {  }
+Subj. + 很 + [Certain Verbs]	"Special verbs with ""hen"""	pattern {  }	pattern {  }
+Subj. + 刚刚 + Verb	"Expressing ""just"" with ""gang"""	pattern {  }	pattern {  }
+Subj. + (很) 好 + Verb	"Using ""hao"" to mean ""easy"""	pattern {  }	pattern {  }
+Subj. + Verb + 一下 + Obj.	"Verbing briefly with ""yixia"""	pattern {  }	pattern {  }
+Subj. + Verb + [Indirect Obj.] + [Direct Obj.]	Verbs that take double objects	pattern {  }	pattern {  }
+Subj. +  Verb + 不懂	"Potential complement ""-bu dong"" for not understanding"	pattern {  }	pattern {  }
+只 + 会 / 能 + Verb	"Expressing ""only"" with ""zhi"""	pattern {  }	pattern {  }
+..., 就 + Verb Phrase	"Expressing ""then"" with ""jiu"""	pattern {  }	pattern {  }
+Subj. + 一边 + Verb (，) + 一边 + Verb	"Simultaneous tasks with ""yibian"""	pattern {  }	pattern {  }
+Subj. + 又 + Adj. 1 + 又 + Adj. 2	"Expressing ""both A and B"" with ""you"""	pattern {  }	pattern {  }
+Place 1 + 离 + Place 2 + Adv. + 近 / 远	"Expressing distance with ""li"""	pattern {  }	pattern {  }
+Place 1 + 离 + Place 2 (+ Adv.) + 近 / 远 + 吗？	"Expressing distance with ""li"""	pattern {  }	pattern {  }
+Place 1 + 离 + Place 2 (+ 有) + 多远？	"Expressing distance with ""li"""	pattern {  }	pattern {  }
+Subj. + 不太 + Adj.	"Expressing ""not very"" with ""bu tai"""	pattern {  }	pattern {  }
+Subj. + 不太 + Verb	"Expressing ""not very"" with ""bu tai"""	pattern {  }	pattern {  }
+真 + Adj.	"Expressing ""really"" with ""zhen"""	pattern {  }	pattern {  }
+真 + Verb	"Expressing ""really"" with ""zhen"""	pattern {  }	pattern {  }
+Subj. + 多 + Adj.	"Intensifying with ""duo"""	pattern {  }	pattern {  }
+Subj. + 还 + 好 / 可以 / 行 / 不错	"Moderating positive adjectives with ""hai"""	pattern {  }	pattern {  }
+Adj. + 的 + Noun	"Modifying nouns with adjective + ""de"""	pattern {  }	pattern {  }
+Phrase + 的 + Noun	"Modifying nouns with phrase + ""de"""	pattern {  }	pattern {  }
+Phrase + 的	"Modifying nouns with phrase + ""de"""	pattern {  }	pattern {  }
+最 + Adj.	"Superlative ""zui"""	pattern {  }	pattern {  }
+最 + Adj. (+ 了)	"Superlative ""zui"""	pattern {  }	pattern {  }
+最 + [Psychological Verb] + Obj. (+ 了)	"Superlative ""zui"""	pattern {  }	pattern {  }
+Possibility 1 + 或者 + Possibility 2	"Expressing ""or"" in statements"	pattern {  }	pattern {  }
+Subj. + 跟 + Person + Verb + Obj.	"Expressing ""with"" with ""gen"""	pattern {  }	pattern {  }
+Subj. + 跟 + Person + 一起 + Verb + Obj.	"Expressing ""with"" with ""gen"""	pattern {  }	pattern {  }
+(那个⋯⋯) (那个⋯⋯) + [anything] + (那个⋯⋯)	"The filler word ""neige"""	pattern {  }	pattern {  }
+Statement， 可是 / 但是 + [Contrary Statement]	"Two words for ""but"""	pattern {  }	pattern {  }
+Time / Verb + 以前 ，⋯⋯	"Before a specific time with ""yiqian"""	pattern {  }	pattern {  }
+以前 + Subj. + Verb + Obj.	"Expressing ""before"" in general with ""yiqian"""	pattern {  }	pattern {  }
+Subj. + 以前 + Verb + Obj.	"Expressing ""before"" in general with ""yiqian"""	pattern {  }	pattern {  }
+刚才 + Verb	"Expressing ""just now"" with ""gangcai"""	pattern {  }	pattern {  }
+Time Word + 的 时候, ....	"Expressing ""when"" with ""de shihou"""	pattern {  }	pattern {  }
+Time + Subj. + Verb + Obj.	Time words and word order	pattern {  }	pattern {  }
+Subj. + Time + Verb + Obj.	Time words and word order	pattern {  }	pattern {  }
+差 + Minutes + 分 + Hour + 点	Structure of times (advanced)	pattern {  }	pattern {  }
+Hour + 点 + 差 + Minutes + 分	Structure of times (advanced)	pattern {  }	pattern {  }
+已经 + 没(有) + [Noun Phrase] + 了	"Expressing ""not anymore"" with ""le"""	pattern {  }	pattern {  }
+Adj. + 地 +  Verb	"Structural particle ""de"""	pattern {  }	pattern {  }
+Verb + 过 + 了	"Using ""guo"" with ""le"""	pattern {  }	pattern {  }
+从 + Time 1 + 到 + Time 2	"Expressing ""from… to…"" with ""cong… dao…"""	pattern {  }	pattern {  }
+从 + Place 1 + 到 + Place 2	"Expressing ""from… to…"" with ""cong… dao…"""	pattern {  }	pattern {  }
+Subj. + [Verb Phrase 1] + [Verb Phrase 2]	Actions in a row	pattern {  }	pattern {  }
+Subj. + (很) 难 + Verb	"Expressing ""difficult"" with ""nan"""	pattern {  }	pattern {  }
+Subj. + (很) 难 + [Sense Verb]	"Expressing ""difficult"" with ""nan"""	pattern {  }	pattern {  }
+Subj. + Verb + 了 + Duration + Obj.	"Expressing duration with ""le"""	pattern {  }	pattern {  }
+Subj. + Verb + 了 + Duration + 的 + Obj.	"Expressing duration with ""le"""	pattern {  }	pattern {  }
+Subj. + [Time Word] + Verb + 了 + Duration + Obj.	"Expressing duration with ""le"""	pattern {  }	pattern {  }
+Subj. + 从来 + 不 + [Verb Phrase]	"Expressing ""never"" with ""conglai"""	pattern {  }	pattern {  }
+Subj. + 从来 + 没(有) + Verb + 过	"Expressing ""never"" with ""conglai"""	pattern {  }	pattern {  }
+Subj. + Verb + 了 + Duration + 了	"Expressing ongoing duration with double ""le"""	pattern {  }	pattern {  }
+Subj. + Verb + Obj. + Verb + 了 + Duration + 了	"Expressing ongoing duration with double ""le"""	pattern {  }	pattern {  }
+Subj. + 一起 + Verb + Obj.	"Expressing ""together"" with ""yiqi"""	pattern {  }	pattern {  }
+Subj. + 没办法 + Verb + Obj.	"Inability with ""mei banfa"""	pattern {  }	pattern {  }
+Subj. + 在 + Place + Verb + Obj.	"Indicating location with ""zai"" before verbs"	pattern {  }	pattern {  }
+Subj. + Verb + Verb	Reduplication of verbs	pattern {  }	pattern {  }
+Verb + 一 + Verb	Reduplication of verbs	pattern {  }	pattern {  }
+Subj. + [Special Verb] + 在 + Location	"Special cases of ""zai"" following verbs"	pattern {  }	pattern {  }
+Subj. + 到 + Place	"Using ""dao"" to mean ""to go to"""	pattern {  }	pattern {  }
+到 + Place + 来 / 去	"Using ""dao"" to mean ""to go to"""	pattern {  }	pattern {  }
+好 + Verb	"Using ""hao"" to mean ""easy"""	pattern {  }	pattern {  }
+Subj. + Verb + 到 + Obj.	"Result complements ""-dao"" and ""-jian"""	pattern {  }	pattern {  }
+Subj. + Verb + 见 + Obj.	"Result complements ""-dao"" and ""-jian"""	pattern {  }	pattern {  }
+Subj. + 没 + Verb + 到 / 见 + Obj.	"Result complements ""-dao"" and ""-jian"""	pattern {  }	pattern {  }
+Subj. + Verb + 完	"Result complement ""-wan"" for finishing"	pattern {  }	pattern {  }
+一些 + Noun	"Expressing ""some"" with ""yixie"""	pattern {  }	pattern {  }
+有的 + (Subj.) + Predicate， 有的 + (Subj.) + Predicate	"Using ""youde"" to mean ""some"""	pattern {  }	pattern {  }
+Subj. + 多少钱 ?	Counting money	pattern {  }	pattern {  }
+Number + 块 + Number + 毛	Counting money	pattern {  }	pattern {  }
+每 + Measure Word + Noun + 都	"Expressing ""every"" with ""mei"""	pattern {  }	pattern {  }
+半 + Measure Word + Noun	"Expressing ""half"" with ""ban"""	pattern {  }	pattern {  }
+Number + Measure Word + 半 + Noun	"Expressing ""half"" with ""ban"""	pattern {  }	pattern {  }
+半 + 天 / 年	"Expressing ""half"" with ""ban"""	pattern {  }	pattern {  }
+Number + 天 / 年 + 半	"Expressing ""half"" with ""ban"""	pattern {  }	pattern {  }
+Number + Measure Word + Noun	Measure words for counting	pattern {  }	pattern {  }
+Subj. + Verb + 几 + Measure Word + Noun？	Measure words in quantity questions	pattern {  }	pattern {  }
+Subj. + Verb + 多少 + Measure Word + Noun ？	Measure words in quantity questions	pattern {  }	pattern {  }
+这 / 那 + Measure Word + Noun	"Measure words with ""this"" and ""that"""	pattern {  }	pattern {  }
+第 + Number	"Ordinal numbers with ""di"""	pattern {  }	pattern {  }
+第 + Number + Measure Word + Noun	"Ordinal numbers with ""di"""	pattern {  }	pattern {  }
+Subj. + 怎么样 ?	"Asking how something is with ""zenmeyang"""	pattern {  }	pattern {  }
+你 觉得 + Topic + 怎么样 ?	"Asking how something is with ""zenmeyang"""	pattern {  }	pattern {  }
+Subj. + 怎么 + Verb + Obj. ?	"Asking why with ""zenme"""	pattern {  }	pattern {  }
+Subj. + 怎么 (+ 不) + Adj.	"Asking why with ""zenme"""	pattern {  }	pattern {  }
+Subj. + 怎么 + 这么 / 那么 + Adj.	"Asking why with ""zenme"""	pattern {  }	pattern {  }
+Subj. + Verb + Obj. + 了吗?	"Questions with ""le ma"""	pattern {  }	pattern {  }
+Topic (+ Subj.) + Verb + 了吗?	"Questions with ""le ma"""	pattern {  }	pattern {  }
+Result, 因为 + Reason	"Cause and effect with ""yinwei"" and ""suoyi"""	pattern {  }	pattern {  }
+Reason, 所以 + Result	"Cause and effect with ""yinwei"" and ""suoyi"""	pattern {  }	pattern {  }
+因为 + Cause, 所以 + Effect	"Cause and effect with ""yinwei"" and ""suoyi"""	pattern {  }	pattern {  }
+快+ Verb + 了	"Expressing ""about to happen"" with ""le"""	pattern {  }	pattern {  }
+快要 + Verb + 了	"Expressing ""about to happen"" with ""le"""	pattern {  }	pattern {  }
+什么 + Noun + 都 / 也 + 不 + Verb	"Expressing ""everything"" with ""shenme dou"""	pattern {  }	pattern {  }
+在 + Location+ 上 / 下 / 里 / 旁边	"Expressing location with ""zai... shang / xia / li"""	pattern {  }	pattern {  }
+在 + Occasion + 上	"Expressing location with ""zai... shang / xia / li"""	pattern {  }	pattern {  }
+Subj. + Adj. + 极了	"Adjectives with ""-ji le"""	pattern {  }	pattern {  }
+Subj. + 不 / 没 + 全都 + Predicate	"Indicating the whole with ""quan"""	pattern {  }	pattern {  }
+Adj. + Adj. + 的 (+ Noun)	Reduplication of adjectives	pattern {  }	pattern {  }
+Subj. + 正好 + [Verb Phrase]	"Coincidence with ""zhenghao"""	pattern {  }	pattern {  }
+(让 +) Subj. + 来	"Using ""lai"" as a dummy verb"	pattern {  }	pattern {  }
+Subj. + 把 + Obj. + Verb + 给 + Recipient	"Verbs followed by ""gei"""	pattern {  }	pattern {  }
+Subj. + Verb + 得 + Complement	Potential complement	pattern {  }	pattern {  }
+Subj. + 被 (+ Doer) + Verb + 了	"Using ""bei"" sentences"	pattern {  }	pattern {  }
+Subj. + 比较 + Adj.	"Expressing ""rather"" with ""bijiao"""	pattern {  }	pattern {  }
+Subj. + 比较 + [Verb Phrase]	"Expressing ""rather"" with ""bijiao"""	pattern {  }	pattern {  }
+Reason / Situation ，要不 + Suggestion	"Expressing ""how about"" with ""yaobu"""	pattern {  }	pattern {  }
+A + 比 + B + Adj. + Number + 倍	"Expressing ""multiples"" with ""bei"""	pattern {  }	pattern {  }
+Word + 来说	"Phrases using ""laishuo"""	pattern {  }	pattern {  }
+Noun 1 + 比 + Noun 2 + 更 / 还 + Adj.	"Expressing ""even more"" with ""geng"" or ""hai"""	pattern {  }	pattern {  }
+Noun 1 + 比 + Noun 2 + Adj. + 很多 / 得多 / 多了	"Expressing ""much more"" in comparisons"	pattern {  }	pattern {  }
+Subj. + 不怎么 + Adj. / [Psychological Verb]	"Expressing ""not very"" with ""bu zenme"""	pattern {  }	pattern {  }
+全 + Noun + 都 + Predicate	"Indicating the whole with ""quan"""	pattern {  }	pattern {  }
+Subj. + 全都 + Predicate	"Indicating the whole with ""quan"""	pattern {  }	pattern {  }
+Subj. + 全都 + 不 / 没 + Predicate	"Indicating the whole with ""quan"""	pattern {  }	pattern {  }
+A A + 的 (+ Noun)	Reduplication of adjectives	pattern {  }	pattern {  }
+A  A  B  B  + 的 (+ Noun)	Reduplication of adjectives	pattern {  }	pattern {  }
+AABB + 地 + Verb	Reduplication of adjectives	pattern {  }	pattern {  }
+Subj. + ABAB	Reduplication of adjectives	pattern {  }	pattern {  }
+Subj. + AB + 一下	Reduplication of adjectives	pattern {  }	pattern {  }
+Subj. + Adj. + 地 + Verb	Turning adjectives into adverbs	pattern {  }	pattern {  }
+Subj. + 还在 + [Verb Phrase]	"Continuation with ""hai"""	pattern {  }	pattern {  }
+⋯⋯ ，(但是 / 可是 +) Subj. + 还是 + [Verb Phrase]	"Continuation with ""hai"""	pattern {  }	pattern {  }
+Subj. + 还 + 不 / 没 + [Verb Phrase]	"Continuation with ""hai"""	pattern {  }	pattern {  }
+就是 + Noun	"Emphasis with ""jiushi"""	pattern {  }	pattern {  }
+就(是) + (不) + Verb	"Emphasis with ""jiushi"""	pattern {  }	pattern {  }
+又 + 不 / 没 + Predicate	"Emphasizing negation with ""you"""	pattern {  }	pattern {  }
+(Subj. +) 就要 + Verb + 了 (，⋯⋯)	"Expressing ""about to"" with ""jiuyao"""	pattern {  }	pattern {  }
+还有 + Time (+ Subj.) + 就 (要) + Verb + 了	"Expressing ""about to"" with ""jiuyao"""	pattern {  }	pattern {  }
+Subj. + 再 + [Verb Phrase]	"Expressing ""again"" in the future with ""zai"""	pattern {  }	pattern {  }
+Subj. + 再 + Verb + Obj.	"Expressing ""again"" in the future with ""zai"""	pattern {  }	pattern {  }
+Subj. + 再 + Verb + Verb	"Expressing ""again"" in the future with ""zai"""	pattern {  }	pattern {  }
+(Subj. +) 又 + Verb + 了	"Expressing ""again"" in the past with ""you"""	pattern {  }	pattern {  }
+(Subj. +) 又 + 不 / 没 + Verb	"Expressing ""again"" in the past with ""you"""	pattern {  }	pattern {  }
+原来 + 的 + Noun	"Expressing ""all along"" with ""yuanlai"""	pattern {  }	pattern {  }
+Subj. + 原来 + Predicate	"Expressing ""all along"" with ""yuanlai"""	pattern {  }	pattern {  }
+原来 + [New Information]	"Expressing ""all along"" with ""yuanlai"""	pattern {  }	pattern {  }
+Subj. + 一下子 + Predicate + 了	"Expressing ""all at once"" with ""yixiazi"""	pattern {  }	pattern {  }
+Subj. + 一下子 + 就 + Predicate + 了	"Expressing ""all at once"" with ""yixiazi"""	pattern {  }	pattern {  }
+Subj. + 差点 + Predicate	"Expressing ""almost"" using ""chadian"""	pattern {  }	pattern {  }
+Subj. + 差点 (+就) + Predicate + 了	"Expressing ""almost"" using ""chadian"""	pattern {  }	pattern {  }
+都 + Time + 了	"Expressing ""already"" with ""dou"""	pattern {  }	pattern {  }
+Subj. + 都 + Predicate + 了	"Expressing ""already"" with ""dou"""	pattern {  }	pattern {  }
+Subj. + 从来 + 都 (是) + Predicate	"Expressing ""always"" with ""conglai"""	pattern {  }	pattern {  }
+Reason / Condition ，结果 + Result	"Expressing ""as a result"" with ""jieguo"""	pattern {  }	pattern {  }
+Situation ，结果 + [Unexpected Result]	"Expressing ""as a result"" with ""jieguo"""	pattern {  }	pattern {  }
+Subj. + (已经 +) Duration + 没 + Verb + 了	Expressing duration of inaction	pattern {  }	pattern {  }
+互相 + Verb	"Expressing ""each other"" with ""huxiang"""	pattern {  }	pattern {  }
+Subj. + Time + 就 + Verb	"Expressing earliness with ""jiu"""	pattern {  }	pattern {  }
+Subj. + [Point in Time] + 就 + Verb + 了	"Expressing earliness with ""jiu"""	pattern {  }	pattern {  }
+Subj. + Time Period + 就 + Verb + 了	"Expressing earliness with ""jiu"""	pattern {  }	pattern {  }
+够 + Verb / Adj. + 了	"Expressing ""enough"" with ""gou"""	pattern {  }	pattern {  }
+Subj. + 不 + 够 + Adj. / Verb	"Expressing ""enough"" with ""gou"""	pattern {  }	pattern {  }
+Subj. + 终于 + Predicate + 了	"Expressing ""finally"" with ""zhongyu"""	pattern {  }	pattern {  }
+Subj. + 还是 + [Verb Phrase] + 吧	"Expressing ""had better"" with ""haishi"""	pattern {  }	pattern {  }
+Subj. + 最好 + Predicate	"Expressing ""had better"" with ""zuihao"""	pattern {  }	pattern {  }
+Subj. + 最好 + 别 / 不要 + Predicate	"Expressing ""had better"" with ""zuihao"""	pattern {  }	pattern {  }
+这样 + Verb	"Expressing ""in this way"" with ""zheyang"""	pattern {  }	pattern {  }
+⋯⋯ ，这样 + 会 / 才 ⋯⋯	"Expressing ""in this way"" with ""zheyang"""	pattern {  }	pattern {  }
+(如果是 +) 这样的话 ，⋯⋯	"Expressing ""in this way"" with ""zheyang"""	pattern {  }	pattern {  }
+Subj. + Time + 才 + Verb	"Expressing lateness with ""cai"""	pattern {  }	pattern {  }
+一 + Measure Word + 一 + Measure Word (+ Noun)	"Expressing ""one by one"" with ""yi"""	pattern {  }	pattern {  }
+一 + Time Unit + 一 + Time Unit (+ Noun)	"Expressing ""one by one"" with ""yi"""	pattern {  }	pattern {  }
+一 + [Measure Word] (+ 又) + 一 + [Measure Word]	"Expressing ""one by one"" with ""yi"""	pattern {  }	pattern {  }
+就 + Subj. + Predicate	"Expressing ""small quantity"" with ""jiu"""	pattern {  }	pattern {  }
+Subj. + 就 + [Verb Phrase]	"Expressing ""small quantity"" with ""jiu"""	pattern {  }	pattern {  }
+Subj. + 就 + Number + [Measure Word] + Noun	"Expressing ""small quantity"" with ""jiu"""	pattern {  }	pattern {  }
+先 ⋯⋯ ，再 ⋯⋯	"Sequencing with ""xian"" and ""zai"""	pattern {  }	pattern {  }
+先 + [Verb Phrase] + 再说	"Sequencing with ""xian"" and ""zai"""	pattern {  }	pattern {  }
+老 (是) + Predicate	"Using ""always"" as a complaint with ""laoshi"""	pattern {  }	pattern {  }
+才 + Number + [Measure Word] + Noun	"Using ""cai"" for small numbers"	pattern {  }	pattern {  }
+才 + Verb + Number + Measure Word + Noun	"Using ""cai"" for small numbers"	pattern {  }	pattern {  }
+Subj. + 也都 + Predicate	"Using ""ye"" and ""dou"" together"	pattern {  }	pattern {  }
+Subj. + 也都 + 不 / 没 + Predicate	"Using ""ye"" and ""dou"" together"	pattern {  }	pattern {  }
+Subj. + 那么 / 这么 + Adj.	"Adjectives with ""name"" and ""zheme"""	pattern {  }	pattern {  }
+挺 + Adj. + 的	"Expressing ""quite"" with ""ting"""	pattern {  }	pattern {  }
+挺 + [Verb Phrase] + 的	"Expressing ""quite"" with ""ting"""	pattern {  }	pattern {  }
+Noun 1, Noun 2 (+ Noun 3) + 什么的	"Ending a non-exhaustive list with ""shenme de"""	pattern {  }	pattern {  }
+像 ⋯⋯ 之类的 + [Category]	"Expressing ""stuff like that"" with ""zhileide"""	pattern {  }	pattern {  }
+⋯⋯ 之类的 + [Category]	"Expressing ""stuff like that"" with ""zhileide"""	pattern {  }	pattern {  }
+A1，A2 ⋯⋯ 等 / 等等	"Non-exhaustive lists with ""dengdeng"""	pattern {  }	pattern {  }
+A1，A2 ⋯⋯ 等 + [Category] + Predicate	"Non-exhaustive lists with ""dengdeng"""	pattern {  }	pattern {  }
+⋯⋯ ，不过 ⋯⋯	"A softer ""but"" with ""buguo"""	pattern {  }	pattern {  }
+要不 + Suggestion ，Reason / Situation	"Expressing ""how about"" with ""yaobu"""	pattern {  }	pattern {  }
+⋯⋯ ，还有 ，⋯⋯	"Expressing ""in addition"" with ""haiyou"""	pattern {  }	pattern {  }
+⋯⋯ ，另外 ，⋯⋯	"Expressing ""in addition"" with ""lingwai"""	pattern {  }	pattern {  }
+另外 + [Verb Phrase]	"Expressing ""in addition"" with ""lingwai"""	pattern {  }	pattern {  }
+⋯⋯ ，再说 ，⋯⋯	"Expressing ""in addition"" with ""zaishuo"""	pattern {  }	pattern {  }
+Situation ，那么 + Suggestion / Decision	"Expressing ""then…"" with ""name"""	pattern {  }	pattern {  }
+通过 / 用 + Method + 来 + [Verb Phrase]	"Using ""lai"" to connect two verb phrases"	pattern {  }	pattern {  }
+Subj + MW + MW + Predicate	Reduplication of measure words	pattern {  }	pattern {  }
+Event + 之前 / 之后 ，⋯⋯	"Expressing ""before"" and ""after"" with ""zhiqian"" and ""zhihou"""	pattern {  }	pattern {  }
+⋯⋯ ，之前 / 之后 ⋯⋯	"Expressing ""before"" and ""after"" with ""zhiqian"" and ""zhihou"""	pattern {  }	pattern {  }
+Time / Event + 以来 ，⋯⋯	"Expressing ""ever since"" with ""yilai"""	pattern {  }	pattern {  }
+Time Period + 来 ，⋯⋯	"Expressing ""ever since"" with ""yilai"""	pattern {  }	pattern {  }
+Time + 时 ，Subj. ⋯⋯	"Expressing ""when"" with ""shi"""	pattern {  }	pattern {  }
+[Past Event 1] ，后来 ，[Past Event 2]	"Sequencing past events with ""houlai"""	pattern {  }	pattern {  }
+Denominator + 分之 + Numerator	"Expressing fractions with ""fenzhi"""	pattern {  }	pattern {  }
+A + 是 / 占 + B + 的 + Denominator + 分之 + Numerator	"Expressing fractions with ""fenzhi"""	pattern {  }	pattern {  }
+Number + 多 + [Measure word] (+ Noun)	Indicating a number in excess	pattern {  }	pattern {  }
+Statement + 吗 ？	"Advanced yes-no questions with ""ma"""	pattern {  }	pattern {  }
+Confirmation + Question + 吗 ？	"Advanced yes-no questions with ""ma"""	pattern {  }	pattern {  }
+Verb + 着	"Aspect particle ""zhe"""	pattern {  }	pattern {  }
+Verb 1 + 着 + Verb 2	"Aspect particle ""zhe"""	pattern {  }	pattern {  }
+Subj. + 是 + Verb + 着 + 玩 + 的	"Aspect particle ""zhe"""	pattern {  }	pattern {  }
+Statement + 嘛	"Expressing the self-evident with ""ma"""	pattern {  }	pattern {  }
+Option 1 + 吧 ，⋯⋯ ；Option 2 + 吧 ，⋯⋯	"Reviewing options with ""ba"""	pattern {  }	pattern {  }
+Statement + 的	"Using ""de"" (modal particle)"	pattern {  }	pattern {  }
+关于 + Obj. ，⋯⋯	"Expressing ""about"" with ""guanyu"""	pattern {  }	pattern {  }
+关于 ⋯⋯ 的 + Noun	"Expressing ""about"" with ""guanyu"""	pattern {  }	pattern {  }
+直到 + Time / Event ，Subj. + 才 ⋯⋯	"Expressing ""all the way until"" with ""zhidao"""	pattern {  }	pattern {  }
+直到 + Time / Event ，Subj. + 都  + 不 / 没 ⋯⋯	"Expressing ""all the way until"" with ""zhidao"""	pattern {  }	pattern {  }
+Subj. + 给 + Recipient + [Verb Phrase]	"Expressing ""for"" with ""gei"""	pattern {  }	pattern {  }
+为 + Party + Verb / Adj.	"Expressing ""for"" with ""wei"""	pattern {  }	pattern {  }
+Subj. + 不到 + Number + [Measure Word] + Noun	"Expressing ""less than"" with ""budao"""	pattern {  }	pattern {  }
+Subj. + 不到 + Time + 就 + Predicate + 了	"Expressing ""less than"" with ""budao"""	pattern {  }	pattern {  }
+向 + Direction / Person + Verb	"Expressing ""towards"" with ""xiang"""	pattern {  }	pattern {  }
+往 + Direction / Place + Verb	"Expressing ""toward"" with ""wang"""	pattern {  }	pattern {  }
+Verb + 往 + Direction / Place	"Expressing ""toward"" with ""wang"""	pattern {  }	pattern {  }
+在 + Topic + 上 ，Subj. ⋯⋯	"Idiomatic phrases with ""zai"""	pattern {  }	pattern {  }
+在 ⋯⋯ 下 ，⋯⋯	"Idiomatic phrases with ""zai"""	pattern {  }	pattern {  }
+在 + Topic + 方面 ，Subj. ⋯⋯	"Idiomatic phrases with ""zai"""	pattern {  }	pattern {  }
+Subj. + 对 + Person + Verb	"Using ""dui"" with verbs"	pattern {  }	pattern {  }
+对 + Person + 来说 ，⋯⋯	"Using ""dui"" with verbs"	pattern {  }	pattern {  }
+Subj. + 看起来 + Adj.	"Appearance with ""kanqilai"""	pattern {  }	pattern {  }
+Subj. + 看起来 + 像 + Noun Phrase	"Appearance with ""kanqilai"""	pattern {  }	pattern {  }
+Subj. + [Causative Verb] + Person + Predicate	Causative verbs	pattern {  }	pattern {  }
+这 / 那 + 要看 / 得看 + [Unclear Situation]	"Expressing ""it depends"" with ""kan"""	pattern {  }	pattern {  }
+[Unknown Outcome] + 要看 / 得看 + [Unclear Situation]	"Expressing ""it depends"" with ""kan"""	pattern {  }	pattern {  }
+Subj. + 好像 ⋯⋯	"Expressing ""it seems"" with ""haoxiang"""	pattern {  }	pattern {  }
+Subj. + 以为 ⋯⋯	"Expressing ""mistakenly think that"" with ""yiwei"""	pattern {  }	pattern {  }
+经过 + Event / Time ，⋯⋯	"Expressing ""through"" with ""jingguo"""	pattern {  }	pattern {  }
+通过 + Agent / Method ，Subj. ⋯⋯	"Expressing ""through"" with ""tongguo"""	pattern {  }	pattern {  }
+Subj. + 来自 + Place	"Expressing ""to come from"" with ""laizi"""	pattern {  }	pattern {  }
+Subj. (+ 不) + 算 + Noun	"Making judgments with ""suan"""	pattern {  }	pattern {  }
+Subj. + 算 + Adj. + 的	"Making judgments with ""suan"""	pattern {  }	pattern {  }
+Subj. + 不 + 算 + Adj.	"Making judgments with ""suan"""	pattern {  }	pattern {  }
+Subj. + 不用 + [Verb Phrase]	"Expressing ""don't need to"" with ""buyong"""	pattern {  }	pattern {  }
+Subj. + 得 + [Verb Phrase]	"Expressing ""must"" with ""dei"""	pattern {  }	pattern {  }
+少 + Verb	"Doing something less with ""shao"""	pattern {  }	pattern {  }
+多 + Verb	"Doing something more with ""duo"""	pattern {  }	pattern {  }
+Subj. + 正在 / 正 / 在 + Verb + 呢	Expressing actions in progress (full form)	pattern {  }	pattern {  }
+Subj. (+ 正) + Verb + 着 + Obj. + 呢	Expressing actions in progress (full form)	pattern {  }	pattern {  }
+Subj. + Verb + Obj. + 呢	Expressing actions in progress (full form)	pattern {  }	pattern {  }
+Subj. + 不怎么 + Verb	"Expressing ""not often"" with ""bu zenme"""	pattern {  }	pattern {  }
+Verb (+ 一直) + 到 + Time / Event	"Expressing ""until"" with ""dao"""	pattern {  }	pattern {  }
+[Verb Phrase] (+ 一直) + Verb + 到 + Time / Event	"Expressing ""until"" with ""dao"""	pattern {  }	pattern {  }
+Verb + Number + Measure Word	Measure words for verbs	pattern {  }	pattern {  }
+Verb + Object	Separable verb	pattern {  }	pattern {  }
+Verb... [Other Stuff]... Object	Separable verb	pattern {  }	pattern {  }
+跟 + Person + Verb + Object	Separable verb	pattern {  }	pattern {  }
+Verb + 了 / 过 / 着 + Object	Separable verb	pattern {  }	pattern {  }
+Verb + [Measure Word Phrase] + Object	Separable verb	pattern {  }	pattern {  }
+Verb + Verb + Object	Separable verb	pattern {  }	pattern {  }
+Subj. + Verb + 给 + Recipient + Obj.	"Verbs followed by ""gei"""	pattern {  }	pattern {  }
+Obj. + Subj. + Verb + 给 + Recipient	"Verbs followed by ""gei"""	pattern {  }	pattern {  }
+Subj. + 给 + Target + [Verb Phrase]	"Verbs preceded by ""gei"""	pattern {  }	pattern {  }
+Verb + 得 + [Degree Complement]	Degree complement	pattern {  }	pattern {  }
+Verb + [Compound Direction Complement]	Direction complement	pattern {  }	pattern {  }
+Verb + Object + Complement	Direction complement	pattern {  }	pattern {  }
+Subj. + 把 + Obj. + Verb + [Direction Complement]	Direction complement	pattern {  }	pattern {  }
+Verb + 起来	"Direction complement ""-qilai"""	pattern {  }	pattern {  }
+Verb / Adj. + 起来 +了	"Direction complement ""-qilai"""	pattern {  }	pattern {  }
+Subj. + Verb + 起来 + Adv. + Adj.	"Direction complement ""-qilai"""	pattern {  }	pattern {  }
+Subj. + Verb + 不 + Complement	Potential complement	pattern {  }	pattern {  }
+Subj. + Verb + Adj. + 了 (+ Obj.)	Result complements	pattern {  }	pattern {  }
+Subj. + 没 + Verb + Adj. (+ Obj.)	Result complements	pattern {  }	pattern {  }
+Subj. + Verb + [One-syllable Verb] +了 (+ Obj.)	Result complements	pattern {  }	pattern {  }
+Subj. + Verb + 下去	"Result complement ""-xiaqu"""	pattern {  }	pattern {  }
+Subj. + Verb + 不 + 下去 (+ 了)	"Result complement ""-xiaqu"""	pattern {  }	pattern {  }
+所有 (+ 的) + Noun	"Expressing ""all"" with ""suoyou"""	pattern {  }	pattern {  }
+所有 (+ 的) + Noun + 都 + Predicate	"Expressing ""all"" with ""suoyou"""	pattern {  }	pattern {  }
+不是 + 所有 (+ 的) + Noun + 都 + Predicate	"Expressing ""all"" with ""suoyou"""	pattern {  }	pattern {  }
+Subj. + 是 + [Noun Phrase] + 之一	"Expressing ""one of"" with ""zhiyi"""	pattern {  }	pattern {  }
+[Noun Phrase] + 之一 + 是 ⋯⋯	"Expressing ""one of"" with ""zhiyi"""	pattern {  }	pattern {  }
+另外 + Number + [Measure Word] + Noun	"Expressing ""the other"" with ""lingwai"""	pattern {  }	pattern {  }
+Person + 是 + 来 / 去 + Verb+ 的	"The ""shi... de"" construction for indicating purpose"	pattern {  }	pattern {  }
+Thing + 是 + 用来 + Verb + 的	"The ""shi... de"" construction for indicating purpose"	pattern {  }	pattern {  }
+Thing + 是 + 给 + Person + Verb + 的	"The ""shi... de"" construction for indicating purpose"	pattern {  }	pattern {  }
+Subj. + 是 + [Distinguishing Words] + 的	"The ""shi... de"" patterns: an overview"	pattern {  }	pattern {  }
+Person + 是 + 来 / 去 + Verb + 的	"The ""shi... de"" patterns: an overview"	pattern {  }	pattern {  }
+Thing + 是 + 用来 + Verb + 的	"The ""shi... de"" patterns: an overview"	pattern {  }	pattern {  }
+Topic ，Comment	Topic-comment sentences	pattern {  }	pattern {  }
+Subj. + [Verb Phrase] + Obj.	"Using ""ba"" sentences"	pattern {  }	pattern {  }
+Subj. + 把 + Obj. + [Verb Phrase]	"Using ""ba"" sentences"	pattern {  }	pattern {  }
+Place + Verb + 着 + [Noun Phrase]	Alternative existential sentences	pattern {  }	pattern {  }
+Place + 是 + [Noun Phrase]	Alternative existential sentences	pattern {  }	pattern {  }
+想 + Verb + 就 + Verb	"Expressing ""as one likes"" with ""jiu"""	pattern {  }	pattern {  }
+想 + Verb + [Question Word] + 就 + Verb + [Question Word]	"Expressing ""as one likes"" with ""jiu"""	pattern {  }	pattern {  }
+Subj. + 不是 + 不 / 没 + Predicate	"Expressing ""double negation"""	pattern {  }	pattern {  }
+Subj. + 不 + 会 / 能 / 可能 + 不 / 没 + Predicate	"Expressing ""double negation"""	pattern {  }	pattern {  }
+(Topic +) 没有 + [Singular Noun] + 不 / 没 + Predicate + 的	"Expressing ""double negation"""	pattern {  }	pattern {  }
+连 + Subj. + 都 (+ 不 / 没) + Verb	"Expressing ""even"" with ""lian"" and ""dou"""	pattern {  }	pattern {  }
+连 + Obj. + 都 (+ 不 / 没) + Verb	"Expressing ""even"" with ""lian"" and ""dou"""	pattern {  }	pattern {  }
+每次 + Event 1 + 都 + Event 2	"Expressing ""every time"" with ""mei"" and ""dou"""	pattern {  }	pattern {  }
+谁 + 都 + Predicate	"Expressing ""every"" with question words"	pattern {  }	pattern {  }
+哪儿 / 哪里 (+ Verb) + 都 + Predicate	"Expressing ""every"" with question words"	pattern {  }	pattern {  }
+什么时候 (+ Verb) + 都 + Predicate	"Expressing ""every"" with question words"	pattern {  }	pattern {  }
+Verb + 多少 + 都 + Predicate	"Expressing ""every"" with question words"	pattern {  }	pattern {  }
+怎么 + Verb + 都 + Predicate	"Expressing ""every"" with question words"	pattern {  }	pattern {  }
+Subj. + 多长时间 + Verb + 一次 (+ Obj.)	"Expressing ""how often"""	pattern {  }	pattern {  }
+Subj. + [Length of Time]  + Verb + Times (+ Obj.)	"Expressing ""how often"""	pattern {  }	pattern {  }
+Subj. + 越来越 + Adj. + 了	"Expressing ""more and more"" with ""yuelaiyue"""	pattern {  }	pattern {  }
+Subj. + 越来越 + Verb + 了	"Expressing ""more and more"" with ""yuelaiyue"""	pattern {  }	pattern {  }
+A + 是 + B + 的 + Number + 倍	"Expressing ""multiples"" with ""bei"""	pattern {  }	pattern {  }
+Subj. + 一点(儿) + 也 / 都 + 不 + Adj.	"Expressing ""not at all"" with ""yidianr ye bu"""	pattern {  }	pattern {  }
+Subj. + 一点 + 也 / 都 + 不 + [Verb Phrase]	"Expressing ""not at all"" with ""yidianr ye bu"""	pattern {  }	pattern {  }
+Subj. + 不知道 + [Verb Phrase] + 好	"Expressing not knowing how to do something using ""hao"""	pattern {  }	pattern {  }
+为了 ⋯⋯ ，Subj. ⋯⋯	"Expressing purpose with ""weile"""	pattern {  }	pattern {  }
+⋯⋯ 是 + 为了 / 因为 ⋯⋯	"Expressing purpose with ""weile"""	pattern {  }	pattern {  }
+对 + Person + 来说 ，⋯⋯	"Phrases using ""laishuo"""	pattern {  }	pattern {  }
+A + 有 + B + Adj. + 吗 ？	"Expressing comparable degree with ""you"""	pattern {  }	pattern {  }
+A + 有 + B + Verb + 得 + Adj. + 吗 ？	"Expressing comparable degree with ""you"""	pattern {  }	pattern {  }
+A + 有 (+ B) + 这么 / 那么 + Adj. + 吗 ？	"Expressing comparable degree with ""you"""	pattern {  }	pattern {  }
+跟 + A + 比 (起来) ，B⋯⋯	"Expressing ""compared with"" using ""gen"""	pattern {  }	pattern {  }
+B + 跟 + A + 比 (起来) ，⋯⋯	"Expressing ""compared with"" using ""gen"""	pattern {  }	pattern {  }
+跟 + Time + 比 (起来) ，⋯⋯	"Expressing ""compared with"" using ""gen"""	pattern {  }	pattern {  }
+Subj. + Adj. + 多了	"Expressing ""much more"" in comparisons"	pattern {  }	pattern {  }
+Adj. + 是 + Adj. ， 但是 / 就是 ⋯⋯	"Conceding a point with ""shi"""	pattern {  }	pattern {  }
+一 + Event 1，就 + Event 2	"Events in quick succession with ""yi... jiu..."""	pattern {  }	pattern {  }
+一 + Reason，就 + Result	"Events in quick succession with ""yi... jiu..."""	pattern {  }	pattern {  }
+虽然 ⋯⋯ ，但是 / 可是 ⋯⋯	"Expressing ""although"" with ""suiran"" and ""danshi"""	pattern {  }	pattern {  }
+要么 + Option A ，要么 + Option B	"Expressing ""either... or..."" with ""yaome"""	pattern {  }	pattern {  }
+除了 ⋯⋯ (+ 以外) ，Subj. + 都 ⋯⋯	"Expressing ""except"" and ""in addition"" with ""chule… yiwai"""	pattern {  }	pattern {  }
+除了 ⋯⋯ (+ 以外) ，Subj. + 也 / 还 ⋯⋯	"Expressing ""except"" and ""in addition"" with ""chule… yiwai"""	pattern {  }	pattern {  }
+还好 + [Lucky Incident] ，不然 + [Bad Outcome]	"Expressing good luck with ""haihao"""	pattern {  }	pattern {  }
+如果 ⋯⋯ ，就 ⋯⋯	"Expressing ""if... then..."" with ""ruguo... jiu..."""	pattern {  }	pattern {  }
+如果 ⋯⋯ ，那么 / 那 ⋯⋯	"Expressing ""if... then..."" with ""ruguo... jiu..."""	pattern {  }	pattern {  }
+如果 ⋯⋯ 的话 ，(就) ⋯⋯	"Expressing ""if"" with ""ruguo... dehua"""	pattern {  }	pattern {  }
+⋯⋯ (的话) ，就 ⋯⋯	"Expressing ""if"" with ""ruguo... dehua"""	pattern {  }	pattern {  }
+Subj. + 不但 ⋯⋯ ，而且 ⋯⋯	"Expressing ""not only... but also"" with ""budan... erqie..."""	pattern {  }	pattern {  }
+不但 + Subj. 1 ⋯⋯ ，而且 + Subj. 2 + 也 ⋯⋯	"Expressing ""not only... but also"" with ""budan... erqie..."""	pattern {  }	pattern {  }
+Reason ，怪不得 / 难怪 + [Observation]	"Expressing ""no wonder"""	pattern {  }	pattern {  }
+怪不得 / 难怪 + [Observation] ，原来 (+ 是) + Reason	"Expressing ""no wonder"""	pattern {  }	pattern {  }
+一 方面 ⋯⋯ ， (另) 一 方面 ⋯⋯	"Expressing various aspects with ""yi fangmian"""	pattern {  }	pattern {  }
+等(到) + Time / Event ，Subj. + 再 / 就 + Predicate	"Expressing ""when"" with ""dengdao"""	pattern {  }	pattern {  }
+等(到) + Time / Event ，Subj. + 才 + Predicate	"Expressing ""when"" with ""dengdao"""	pattern {  }	pattern {  }
+或者 A ，或者 B	"Providing two options with double ""huozhe"""	pattern {  }	pattern {  }
+Verb + 起来	"Advanced uses of direction complement ""-qilai"""	pattern {  }	pattern {  }
+Adj. + 得不得了	"Adjectival complement ""de budeliao"""	pattern {  }	pattern {  }
+Adj. + 得很	"Adjectival complement ""de hen"""	pattern {  }	pattern {  }
+Adj. + 了（一）点儿	"Expressing ""a bit too"""	pattern {  }	pattern {  }
+Subj. + 有的是 + Noun	"Saying ""a lot"" with ""youdeshi"""	pattern {  }	pattern {  }
+Noun + Subj. + 有的是 。	"Saying ""a lot"" with ""youdeshi"""	pattern {  }	pattern {  }
+Subj. + 都 + Predicate	"Advanced uses of ""dou"""	pattern {  }	pattern {  }
+Verb + 都 + Verb 了，...	"Advanced uses of ""dou"""	pattern {  }	pattern {  }
+都 + 怨 / 是 / 怪 + Somebody	"Advanced uses of ""dou"""	pattern {  }	pattern {  }
+Subj. + 还 + Predicate (+ 呢)	"Advanced uses of ""hai"""	pattern {  }	pattern {  }
+Subj. + 还 + Noun Phrase (+ 呢)	"Advanced uses of ""hai"""	pattern {  }	pattern {  }
+Subj. + 还 + [Verb Phrase] + 吗 ?	"Advanced uses of ""hai"""	pattern {  }	pattern {  }
+总 + 会 / 得 / 要 / 能 + Verb Phrase (+ 吧)	"Advanced uses of ""zong"""	pattern {  }	pattern {  }
+总 + 不 / 没 + Verb	"Advanced uses of ""zong"""	pattern {  }	pattern {  }
+看来 + Perspective	"Assessing situations with ""kanlai"""	pattern {  }	pattern {  }
+在 + Person + 看来 + Perspective	"Assessing situations with ""kanlai"""	pattern {  }	pattern {  }
+⋯⋯ ，(Subj. +) 只好 + [Verb Phrase]	"Declaring the only option with ""zhihao"""	pattern {  }	pattern {  }
+可 + Adj. + 了	"Emphatic adverb ""ke"""	pattern {  }	pattern {  }
+可 + Verb Phrase	"Emphatic adverb ""ke"""	pattern {  }	pattern {  }
+可 + Verb Phrase + 了	"Emphatic adverb ""ke"""	pattern {  }	pattern {  }
+毕竟 ⋯⋯	"Expressing ""after all"" with ""bijing"""	pattern {  }	pattern {  }
+虽然 ⋯⋯ ，但 + 毕竟 ⋯⋯ ，(as a result) ⋯⋯	"Expressing ""after all"" with ""bijing"""	pattern {  }	pattern {  }
+(Subj. +) 再不 …… 就 ……（了）	"Expressing a last chance with ""zaibu... jiu..."""	pattern {  }	pattern {  }
+Subj. + 差点 + 没 + Verb Phrase	"Expressing ""almost"" using ""chadian mei"""	pattern {  }	pattern {  }
+Subj. + 差点 (+ 没) + Verb Phrase	"Expressing ""almost"" using ""chadian mei"""	pattern {  }	pattern {  }
+[Disregarded Situation] ， 反正 ⋯⋯	"Expressing ""anyway"" with ""fanzheng"""	pattern {  }	pattern {  }
+反正 + Reason ，Decision / Suggestion	"Expressing ""anyway"" with ""fanzheng"""	pattern {  }	pattern {  }
+Decision / Suggestion ，反正 + Reason	"Expressing ""anyway"" with ""fanzheng"""	pattern {  }	pattern {  }
+尽量 + Verb / Adj.	"Expressing ""as much as possible"" with ""jinliang"""	pattern {  }	pattern {  }
+(Reason,) 恐怕 + Subj. ⋯⋯	"Expressing concern with ""kongpa"""	pattern {  }	pattern {  }
+Subj. + 好 (不) 容易 + 才 + [Result]	"Expressing difficulty with ""hao (bu) rongyi"""	pattern {  }	pattern {  }
+Verb / [Verb Phrase] + 好容易 / 好不容易	"Expressing difficulty with ""hao (bu) rongyi"""	pattern {  }	pattern {  }
+[Noun or Group of Nouns] + 甚至 + [Emphasized Noun] + 都 / 也 ⋯⋯	"Expressing ""even"" with ""shenzhi"""	pattern {  }	pattern {  }
+⋯⋯，甚至 + (连) ⋯⋯ + 都 / 也	"Expressing ""even"" with ""shenzhi"""	pattern {  }	pattern {  }
+尽管 + Verb	"Expressing ""feel free"" with ""jinguan"""	pattern {  }	pattern {  }
+Subj. + 不得不 + Verb	"Expressing ""have to"" with ""budebu"""	pattern {  }	pattern {  }
+到底 ⋯⋯ ，Reason / Characteristic	"Expressing ""in the end"" with ""daodi"""	pattern {  }	pattern {  }
+到底 + Question Word	"Expressing ""in the end"" with ""daodi"""	pattern {  }	pattern {  }
+到底 + Verb ＋ 不 / 没 ＋ Verb	"Expressing ""in the end"" with ""daodi"""	pattern {  }	pattern {  }
+到底 ＋ Verb ＋ 了	"Expressing ""in the end"" with ""daodi"""	pattern {  }	pattern {  }
+究竟 + Question Word	"Expressing ""in the end"" with ""jiujing"""	pattern {  }	pattern {  }
+究竟 ＋ Verb ＋ 没 / 不 ＋ Verb	"Expressing ""in the end"" with ""jiujing"""	pattern {  }	pattern {  }
+Fact ＋ 究竟 + 是 ＋ Fact，……	"Expressing ""in the end"" with ""jiujing"""	pattern {  }	pattern {  }
+Subj. + 干脆 + Verb Phrase	"Expressing ""just"" do it with ""gancui"""	pattern {  }	pattern {  }
+几乎 + Noun Phrase + 都 ……	"Expressing ""nearly"" with ""jihu"""	pattern {  }	pattern {  }
+几乎 + 没有 + Noun Phrase ……	"Expressing ""nearly"" with ""jihu"""	pattern {  }	pattern {  }
+Subj. + 几乎 + [不 / 没 +] Predicate	"Expressing ""nearly"" with ""jihu"""	pattern {  }	pattern {  }
+Subj. + 再也 + 不 (+ Auxiliary Verb) + Verb Phrase + 了	"Expressing ""never again"" with ""zai ye bu"""	pattern {  }	pattern {  }
+Subj. + 再也 + 没 + Verb + 过 + Obj.	"Expressing ""never again"" with ""zai ye bu"""	pattern {  }	pattern {  }
+Subj. + 曾经 + Verb + 过 (+ Obj.)	"Expressing ""once"" with ""cengjing"""	pattern {  }	pattern {  }
+曾经 + 是 / 在 / 有 ⋯⋯	"Expressing ""once"" with ""cengjing"""	pattern {  }	pattern {  }
+不曾 / 未曾 + Verb + 过 + Obj.	"Expressing ""once"" with ""cengjing"""	pattern {  }	pattern {  }
+Subj. + 本来 + 是 +（不）[要 / 会 / 应该] + Verb + 的，[但是 / 可是 / 不过]...	"Expressing ""originally"" with ""benlai"""	pattern {  }	pattern {  }
+Subj. + 本来 + 就...	"Expressing ""originally"" with ""benlai"""	pattern {  }	pattern {  }
+Subj. + 本来 + 就 + 很 / 不 + Adj.	"Expressing ""originally"" with ""benlai"""	pattern {  }	pattern {  }
+Subj. + 本来 + 就 + 会 / 要 / 得 / 应该 + Verb	"Expressing ""originally"" with ""benlai"""	pattern {  }	pattern {  }
+再三 + Verb Phrase	"Expressing ""over and over again"" with ""zaisan"""	pattern {  }	pattern {  }
+Subj. + 简直 + Predicate	"Expressing ""simply"" with ""jianzhi"""	pattern {  }	pattern {  }
+Subj. + 简直 + 是 + Predicate	"Expressing ""simply"" with ""jianzhi"""	pattern {  }	pattern {  }
+Subj. + 一向 + Habit / Attitude / etc.	"Expressing ""since the beginning"" with ""yixiang"""	pattern {  }	pattern {  }
+千万 + Verb / Verb Phrase	"Expressing ""to make certain"" with ""qianwan"""	pattern {  }	pattern {  }
+白 + Verb + 了	"Expressing wasted efforts with ""bai"""	pattern {  }	pattern {  }
+白白 + Verb + 了	"Expressing wasted efforts with ""bai"""	pattern {  }	pattern {  }
+Subj. + Verb Phrase 1, 顺便 + Verb Phrase 2	"Expressing ""while you're at it"" with ""shunbian"""	pattern {  }	pattern {  }
+顺便 说 一下……	"Expressing ""while you're at it"" with ""shunbian"""	pattern {  }	pattern {  }
+顺便 问 一下……	"Expressing ""while you're at it"" with ""shunbian"""	pattern {  }	pattern {  }
+Subj. ＋ Verb + 了 + 又 + Verb， (还是 / 就是) ……	"Repeated actions in the past with ""you"""	pattern {  }	pattern {  }
+难道 + [Rhetorical Question] + 吗？	"Rhetorical questions with ""nandao"""	pattern {  }	pattern {  }
+Subj. + 差很多	"The opposite of ""chabuduo"" is ""cha hen duo"""	pattern {  }	pattern {  }
+A + 跟 / 和 + B + 差很多	"The opposite of ""chabuduo"" is ""cha hen duo"""	pattern {  }	pattern {  }
+A 啊， B 啊， C 啊 (+ 什么的)⋯⋯	"Listing things with ""a"""	pattern {  }	pattern {  }
+⋯⋯ ，于是 ⋯⋯ + 了	"Expressing ""and then"" with ""yushi"""	pattern {  }	pattern {  }
+不是……，而是……	"Using ""er"" to explain contrasting ideas"	pattern {  }	pattern {  }
+是……，而不是……	"Using ""er"" to explain contrasting ideas"	pattern {  }	pattern {  }
+Sentence 1， + 而 + Sentence 2	"Using ""er"" to explain contrasting ideas"	pattern {  }	pattern {  }
+Group / Process + 当中	"Expressing ""among"" with ""dangzhong"""	pattern {  }	pattern {  }
+彼此 + Predicate	"Expressing ""each other"" with ""bici"""	pattern {  }	pattern {  }
+Verb + 彼此	"Expressing ""each other"" with ""bici"""	pattern {  }	pattern {  }
+彼此 + 的 + Noun	"Expressing ""each other"" with ""bici"""	pattern {  }	pattern {  }
+当 + Phrase (+ 时候)，……	"Expressing ""when"" using ""dang"""	pattern {  }	pattern {  }
+Category / Group / Context + 其中	"Expressing ""within (it/them)"" with ""qizhong"""	pattern {  }	pattern {  }
+Subj. + 这个 + [Category]	"Name-calling with ""zhege"""	pattern {  }	pattern {  }
+Subj. + 这种 / 这类 + [Category]	"Name-calling with ""zhege"""	pattern {  }	pattern {  }
+Subj. + Verb + 了 + Obj.	"Advanced ""le"" after an object"	pattern {  }	pattern {  }
+Subj. + Verb + Obj. + 了	"Advanced ""le"" after an object"	pattern {  }	pattern {  }
+Subj. + Verb + Complement + 了	"Advanced ""le"" with complements"	pattern {  }	pattern {  }
+Subj. + Verb + 了 + Complement	"Advanced ""le"" with complements"	pattern {  }	pattern {  }
+Topic + 嘛 ，Statement	"Marking a topic with ""ma"""	pattern {  }	pattern {  }
+Option 1 + 呢 + 还是 + Option 2 + 呢？	"Softening the tone of questions with ""ne"""	pattern {  }	pattern {  }
+⋯⋯Interrogative Pronoun⋯⋯ + 呢？	"Softening the tone of questions with ""ne"""	pattern {  }	pattern {  }
+Subj. + Verb 1 + 不 + Verb 1 + (Verb 2) + 呢？	"Softening the tone of questions with ""ne"""	pattern {  }	pattern {  }
+Amount / Level + 以上 / 以下	Defining upper and lower limits	pattern {  }	pattern {  }
+[Amount / Time / Place / Scope] + 以内 / 以外	Defining upper and lower limits	pattern {  }	pattern {  }
+Subj. + 随着 + Noun + Verb Phrase	"Expressing ""along with…"" with ""suizhe"""	pattern {  }	pattern {  }
+随着 + Trend，Subj. + Predicate	"Expressing ""along with…"" with ""suizhe"""	pattern {  }	pattern {  }
+自从 + [Starting Point] ， ……	"Expressing ""ever since"" with ""zicong"""	pattern {  }	pattern {  }
+从 / 自从 / 自 + Time / Event + (以)后 / 以来	"Expressing ""ever since"" with ""zicong"""	pattern {  }	pattern {  }
+对 + [Person / Group] + 而言 ，⋯⋯	"Expressing ""for…"" with ""eryan"""	pattern {  }	pattern {  }
+(包括)⋯⋯ 在内 ，⋯⋯	"Expressing ""including"" with ""zainei"""	pattern {  }	pattern {  }
+⋯⋯ ，(包括)⋯⋯ 在内	"Expressing ""including"" with ""zainei"""	pattern {  }	pattern {  }
+凭 + Noun / Noun Phrase ……	"Expressing ""on the basis of"" with ""ping"""	pattern {  }	pattern {  }
+凭 + Verb Phrase ……	"Expressing ""on the basis of"" with ""ping"""	pattern {  }	pattern {  }
+Subj. + 凭什么 + Verb Phrase …… ？！	"Expressing ""on the basis of"" with ""ping"""	pattern {  }	pattern {  }
+凭着 + Noun / Noun Phrase ……	"Expressing ""on the basis of"" with ""ping"""	pattern {  }	pattern {  }
+Receiver + 给 + The Doer + Verb Phrase	"Expressing passive voice with ""gei"""	pattern {  }	pattern {  }
+Receiver + 被 + The Doer + 给 + Verb Phrase	"Expressing passive voice with ""gei"""	pattern {  }	pattern {  }
+至于 + Topic， Comment	"Expressing ""with regards to"" with ""zhiyu"""	pattern {  }	pattern {  }
+Subj. + 就 + Scope + Verb + Obj.	"Limiting scope with ""jiu"""	pattern {  }	pattern {  }
+就 + Topic + [来说 / 而言] + Comment	"Limiting scope with ""jiu"""	pattern {  }	pattern {  }
+趁 + [Situation / Opportunity]……	"Opportune timing with ""chen"""	pattern {  }	pattern {  }
+Subj. + 并 + 不 + Verb / Adj.	"Emphasizing a negation with ""bing"""	pattern {  }	pattern {  }
+Subj. + 并 + 没（有) + Verb	"Emphasizing a negation with ""bing"""	pattern {  }	pattern {  }
+要不是 ⋯⋯（的话），⋯⋯	"Expressing ""if it were not for"" with ""yaobushi"""	pattern {  }	pattern {  }
+[Good Outcome] ，多亏 (了) + [Lucky Incident]	"Expressing ""thanks to"" with ""duokui"""	pattern {  }	pattern {  }
+多亏 (了) + [Lucky Incident] ，Subj. 才 + [Good Outcome]	"Expressing ""thanks to"" with ""duokui"""	pattern {  }	pattern {  }
+多亏 (了) + [Lucky Incident] ，不然 + [Bad Outcome]	"Expressing ""thanks to"" with ""duokui"""	pattern {  }	pattern {  }
+(只是 / 就是 / 才 +) Noun + 而已	"Expressing ""that's all"" with ""eryi"""	pattern {  }	pattern {  }
+Subj. + (只是 / 就是 / 才 / 仅仅 +) Verb + Obj. + 而已	"Expressing ""that's all"" with ""eryi"""	pattern {  }	pattern {  }
+Subj. + 将 + Obj. + [Verb Phrase]	"Using ""jiang"" as a formal ""ba"""	pattern {  }	pattern {  }
+Verb + 什么 + Verb ？	"Challenging a verb with ""shenme"""	pattern {  }	pattern {  }
+Verb + 什么 + Obj.	"Challenging a verb with ""shenme"""	pattern {  }	pattern {  }
+Noun 1 + 像 + Noun 2 + 一样 + Adj. / Verb	"Comparing specifically with ""xiang"""	pattern {  }	pattern {  }
+Noun 1 + 不像 + Noun 2 + (⋯⋯ ) 这么 / 那么 + Adj. / Verb	"Comparing specifically with ""xiang"""	pattern {  }	pattern {  }
+比起 + B (+ 来) ，A ……	"Comparisons with ""biqi"""	pattern {  }	pattern {  }
+相比 + B ，A ……	"Comparisons with ""biqi"""	pattern {  }	pattern {  }
+和 / 跟／与 + B + 相比 ，A ……	"Comparisons with ""biqi"""	pattern {  }	pattern {  }
+A + 不如 + B	"Comparisons with ""buru"""	pattern {  }	pattern {  }
+A + 不如 + B + Adj.	"Comparisons with ""buru"""	pattern {  }	pattern {  }
+A + Verb + 得 + 不如 + B + Adj.	"Comparisons with ""buru"""	pattern {  }	pattern {  }
+A + Verb-Obj. + 不如 + B+ (Verb + 得) + Adj.	"Comparisons with ""buru"""	pattern {  }	pattern {  }
+(与其 …… ，) 不如 ……	"Comparisons with ""buru"""	pattern {  }	pattern {  }
+Noun / Adj. + 化	"Making ""-ize"" and ""-ify"" verbs with ""hua"""	pattern {  }	pattern {  }
+难怪 + [Specific Person / People] ……	"Using ""nanguai"" as a verb"	pattern {  }	pattern {  }
+Subj. + 将 / 将要 / 将会 + [Verb Phrase]	"Expressing future with ""jiang"""	pattern {  }	pattern {  }
+[Verb Phrase 1] + 并 + [Verb Phrase 2]	"Combining verbs with ""bing"""	pattern {  }	pattern {  }
+Topic + 由 + Person + Verb	"Emphasizing the doer of an action with ""you"""	pattern {  }	pattern {  }
+(Subj. +) 难免 + Verb Phrase	"Expressing ""hard to avoid"" with ""nanmian"""	pattern {  }	pattern {  }
+[Verb Phrase 1] + 并且 / 并 + [Verb Phrase 2]	"Expressing ""moreover"" with ""bingqie"""	pattern {  }	pattern {  }
+[Verb Phrase 1] + 并且 + 也 / 还 + [Verb Phrase 2]	"Expressing ""moreover"" with ""bingqie"""	pattern {  }	pattern {  }
+不但 / 不仅 + [Verb Phrase 1] + 并且 + 也 / 还 + [Verb Phrase 2]	"Expressing ""moreover"" with ""bingqie"""	pattern {  }	pattern {  }
+值得 + Verb / Verb Phrase	"Expressing ""to be worth"" doing with ""zhide"""	pattern {  }	pattern {  }
+(Verb Phrase +) 值得	"Expressing ""to be worth"" doing with ""zhide"""	pattern {  }	pattern {  }
+Reason，害(得) + Undesirable Situation	"Indicating negative impact with ""haide"""	pattern {  }	pattern {  }
+受 + (Someone / Something) + Verb	"Passive verbs with ""shou"""	pattern {  }	pattern {  }
+受 (+ 到/过) + ([Something / Someone] +) Noun / Verb	"Passive verbs with ""shou"""	pattern {  }	pattern {  }
+Verb + 着 + Verb + 着 + 就 + Comment + 了	"Using ""zhe"" when ""verbing away"""	pattern {  }	pattern {  }
+格外 (地 +) + Advective / Psychological Verb	"Expressing ""especially"" with ""gewai"""	pattern {  }	pattern {  }
+尽管⋯⋯ ，(可是 / 但是 +) Subj. + 还是⋯⋯	"Expressing ""although"" with ""jinguan"""	pattern {  }	pattern {  }
+⋯⋯ ，Subj. + 倒 +  (也 / 又) ⋯⋯	"Expressing contrariness with ""dao"""	pattern {  }	pattern {  }
+Subj. + 倒 ⋯⋯ ，不过 / 但是 / 就是 ⋯⋯	"Expressing contrariness with ""dao"""	pattern {  }	pattern {  }
+⋯⋯ ，Subj. + 反而 + [Unexpected Outcome]	"Expressing ""on the contrary"" with ""fan'er"""	pattern {  }	pattern {  }
+⋯⋯ ，Subj. [不但 / 不仅] + [不 / 没] ⋯⋯，反而 + [Unexpected Outcome]	"Expressing ""on the contrary"" with ""fan'er"""	pattern {  }	pattern {  }
+Sentence ，(但是 +) Subj. + 却 ⋯⋯	"The ""however"" adverb ""que"""	pattern {  }	pattern {  }
+由于 + Cause，Effect	"Expressing ""due to…"" with ""youyu"""	pattern {  }	pattern {  }
+既然 ＋ Fact, [那 / 就 / 那就] ＋ Suggestion / Inference	"Expressing ""since"" with ""jiran"""	pattern {  }	pattern {  }
+既然 + Fact, (那 +) Rhetorical Question	"Expressing ""since"" with ""jiran"""	pattern {  }	pattern {  }
+Cause， + 因此 + Effect	"Expressing ""therefore"" with ""yinci"""	pattern {  }	pattern {  }
+之所以 ⋯⋯ ，是 + 因为 / 为了 / 想 ⋯⋯	Stating the effect before the cause	pattern {  }	pattern {  }
+Verb + 得了 / 不了	Advanced potential complements	pattern {  }	pattern {  }
+Verb + 得下 / 不下	Advanced potential complements	pattern {  }	pattern {  }
+Verb + 得起 / 不起 + Obj.	Advanced potential complements	pattern {  }	pattern {  }
+Verb + 得动 / 不动	Advanced potential complements	pattern {  }	pattern {  }
+Verb + 得着 / 不着	Advanced potential complements	pattern {  }	pattern {  }
+Subj. + 把 + Obj. + Verb + 起来	"Advanced uses of direction complement ""-qilai"""	pattern {  }	pattern {  }
+Adj. + 坏了	"Complement ""-huai le"""	pattern {  }	pattern {  }
+Verb + 着	"Complement ""-zhao"""	pattern {  }	pattern {  }
+Verb + 得着 / 不着	"Complement ""-zhao"""	pattern {  }	pattern {  }
+Verb + 来 + Verb + 去	"Using ""lai"" and ""qu"" when ""verbing around"""	pattern {  }	pattern {  }
+只要 + Condition ，就 + Result	"Expressing ""as long as"" with ""zhiyao"""	pattern {  }	pattern {  }
+一旦 + Condition，Subj. + 就 + Consequence	"Expressing ""once...then..."" with ""yidan...jiu..."""	pattern {  }	pattern {  }
+⋯⋯ ，才 ⋯⋯	"Expressing ""only after"" with ""cai"""	pattern {  }	pattern {  }
+只有 + Essential Condition + 才 (能) + Desired Outcome	"Expressing ""only if"" with ""zhiyou"""	pattern {  }	pattern {  }
+Noun + 才 + Verb Phrase⋯⋯	"Expressing ""only if"" with ""zhiyou"""	pattern {  }	pattern {  }
+Result / Fact ，除非 + Condition	"Expressing ""unless"" with ""chufei"""	pattern {  }	pattern {  }
+Condition, (要) 不然 + Result	"Expressing ""unless"" with ""chufei"""	pattern {  }	pattern {  }
+除非 + Condition ，[否则 / 不然] + [Result / Fact]	"Expressing ""unless"" with ""chufei"""	pattern {  }	pattern {  }
+除非 x，才 y	"Expressing ""unless"" with ""chufei"""	pattern {  }	pattern {  }
+即使 ⋯⋯ ，也 ⋯⋯	"Expressing ""even if…"" with ""jishi"""	pattern {  }	pattern {  }
+就是 + Hypothetical Statement + 也 + Action	"Expressing ""even if…"" with ""jiushi"""	pattern {  }	pattern {  }
+就算 ⋯⋯ ，也 ⋯⋯	"Expressing ""even if…"" with ""jiusuan"""	pattern {  }	pattern {  }
+就算 + 再 + Adj. ，也 ⋯⋯	"Expressing ""even if…"" with ""jiusuan"""	pattern {  }	pattern {  }
+哪怕 ⋯⋯ ，也 ⋯⋯	"Expressing ""even if…"" with ""napa"""	pattern {  }	pattern {  }
+哪怕 + [Subj. 1] + 再 ⋯⋯ ，[Subj. 2] + 也 ⋯⋯	"Expressing ""even if…"" with ""napa"""	pattern {  }	pattern {  }
+假如 + Statement + 就 + Result	"Expressing ""if… then…"" with ""jiaru"""	pattern {  }	pattern {  }
+要是 + Subj. ⋯⋯ ， 就 ⋯⋯	"Expressing ""if… then…"" with ""yaoshi"""	pattern {  }	pattern {  }
+要不是 ⋯⋯ ，⋯⋯	"Expressing ""if… then…"" with ""yaoshi"""	pattern {  }	pattern {  }
+万一 ⋯⋯ 怎么办 ？	"Expressing ""what if"" with ""wanyi"""	pattern {  }	pattern {  }
+万一 ⋯⋯ 呢 ？	"Expressing ""what if"" with ""wanyi"""	pattern {  }	pattern {  }
+万一 ⋯⋯ ，⋯⋯	"Expressing ""what if"" with ""wanyi"""	pattern {  }	pattern {  }
+Topic + 的话 ，Comment	"Marking a topic with ""de hua"""	pattern {  }	pattern {  }
+不管 + Question Word ，(Subj. +) 都 ⋯⋯	"Expressing ""no matter"" with ""buguan"""	pattern {  }	pattern {  }
+不管 + 是 + Option A + 还是 + Option B ，Subj. + 都 ⋯⋯	"Expressing ""no matter"" with ""buguan"""	pattern {  }	pattern {  }
+不管 + [Verb /  Adj.] + 不 + [Verb /  Adj.]，Subj. + 都 ⋯⋯	"Expressing ""no matter"" with ""buguan"""	pattern {  }	pattern {  }
+不管 + 多 + Adj., Subj. + 都 ⋯⋯	"Expressing ""no matter"" with ""buguan"""	pattern {  }	pattern {  }
+无论 + Circumstances + 都 / 也 + Inevitable Result	"Expressing ""no matter"" with ""wulun"""	pattern {  }	pattern {  }
+Subj. + 把 + Obj. + 给 + Verb Phrase	"Advanced uses of ""ba"""	pattern {  }	pattern {  }
+把 + Obj.+ 当成 / 看成 / 当作 / 看作 +⋯⋯	"Advanced uses of ""ba"""	pattern {  }	pattern {  }
+(别 / 不）把 + Obj. + 当回事	"Advanced uses of ""ba"""	pattern {  }	pattern {  }
+把 + Obj. 1 + Verb + 成 + Obj. 2	"Advanced uses of ""ba"""	pattern {  }	pattern {  }
+把 + Obj. 1 + Perception Verb + 成 + Obj. 2	"Advanced uses of ""ba"""	pattern {  }	pattern {  }
+连 + Verb + 都 + 不 / 没 + Verb (，就 ⋯⋯)	"Advanced uses of ""lian"""	pattern {  }	pattern {  }
+连 + 一 + Measure Word (+ Noun) + 都 + 不 / 没 + Verb	"Advanced uses of ""lian"""	pattern {  }	pattern {  }
+Noun 1 + 不比 + Noun 2 + Adj.	"Basic comparisons with ""bu bi"""	pattern {  }	pattern {  }
+A + 不比 + B + Verb + 得 + Adj.	"Basic comparisons with ""bu bi"""	pattern {  }	pattern {  }
+要 + Verb + 就 + Verb ……	"Conditions with ""yao"" and ""jiu"""	pattern {  }	pattern {  }
+任何 + Noun + 都 / 也 ……	"Expressing ""any"" with ""renhe"""	pattern {  }	pattern {  }
+既 + A + 又 + B	"Expressing ""both… and…"" with ""ji...you"""	pattern {  }	pattern {  }
+既 + [Verb Phrase] ，也 + [Verb Phrase]	"Expressing ""both… and…"" with ""ji...you"""	pattern {  }	pattern {  }
+Subj. + 少不了 + Noun / Verb Phrase	"Expressing ""can't do without"" with ""shaobuliao"""	pattern {  }	pattern {  }
+Situation / Result ，少不了 + 是 + Reason	"Expressing ""can't do without"" with ""shaobuliao"""	pattern {  }	pattern {  }
+A 等于 B	"Expressing ""equal to"" with ""dengyu"""	pattern {  }	pattern {  }
+从  + Source + 中 + Result	"Expressing ""from"" with ""cong... zhong"""	pattern {  }	pattern {  }
+Verb + 就 + Verb	"Expressing indifference with ""jiu"""	pattern {  }	pattern {  }
+不 + Adj. / Verb + 就 + 不 + Adj. / Verb	"Expressing indifference with ""jiu"""	pattern {  }	pattern {  }
+无 + Noun + 可 + Verb	"Expressing ""no"" (noun) ""to"" (verb) with ""wu... ke..."""	pattern {  }	pattern {  }
+一 + Measure Word + Noun + [也 / 都] + [不 / 没] + Verb	"Expressing ""not even one"""	pattern {  }	pattern {  }
+Topic + Subj. + 一 + Measure Word + Noun + [也 / 都] + Verb	"Expressing ""not even one"""	pattern {  }	pattern {  }
+Subj. + 不但 ⋯⋯ ，甚至连 + New Subject + 也 + Matching Situation	"Expressing ""not only..., even..."" using ""budan..., shenzhi lian"""	pattern {  }	pattern {  }
+Action ，好 + Purpose	"Expressing purpose with ""hao"""	pattern {  }	pattern {  }
+跟 / 和 + Topic + 有关的 + Noun	"Expressing ""related to..."" with ""you guan de"""	pattern {  }	pattern {  }
+一面 + Verb +  一面 + Verb	"Expressing simultaneous actions with ""yimian"""	pattern {  }	pattern {  }
+所谓 + (的) Noun Phrase	"Expressing ""so-called"" with ""suowei"""	pattern {  }	pattern {  }
+Subj. + 越 ⋯⋯ ，越 ⋯⋯	"Expressing ""the more... the more..."" with ""yue… yue…"""	pattern {  }	pattern {  }
+Subj. 1 + 越 ⋯⋯ ，Subj. 2 + 越 ⋯⋯	"Expressing ""the more... the more..."" with ""yue… yue…"""	pattern {  }	pattern {  }
+越 ⋯⋯ 越 + 不 ⋯⋯	"Expressing ""the more... the more..."" with ""yue… yue…"""	pattern {  }	pattern {  }
+Subj. + 越 + Verb + 越 + 想 + Verb	"Expressing ""the more... the more..."" with ""yue… yue…"""	pattern {  }	pattern {  }
+不是 + A，就是 + B	Expressing the only two possibilities	pattern {  }	pattern {  }
+在 + (a period of time) + 内	"Expressing ""within"" a period of time using ""zai... nei"""	pattern {  }	pattern {  }
+宁可⋯⋯ ，也不⋯⋯	"Expressing ""would rather"" with ""ningke"""	pattern {  }	pattern {  }
+宁可 ⋯⋯ ，也要 ⋯⋯	"Expressing ""would rather"" with ""ningke"""	pattern {  }	pattern {  }
+别说 + A ， 连  / 就是+ B + 也 / 都 + Verb	"Expressing ""let alone"" with ""bie shuo"""	pattern {  }	pattern {  }
+连 + A + 都 / 也 + Verb， 更不用说 + B + 了	"Expressing ""let alone"" with ""geng buyong shuo"""	pattern {  }	pattern {  }
+Subj. + 不仅 / 不但 / 不只 + ⋯⋯，而且 / 还 / 也 + ⋯⋯	"Many types of ""not only... but also..."""	pattern {  }	pattern {  }
+Subj. + Verb + 得 + 倒 + Adj.	"Advanced usages of the contrary ""dao"""	pattern {  }	pattern {  }
+Subj. + 倒 + Adj.	"Advanced usages of the contrary ""dao"""	pattern {  }	pattern {  }
+你 + 倒是 + Verb + 呀 / 啊	"Advanced usages of the contrary ""dao"""	pattern {  }	pattern {  }
+Subj. + 很是 + Adj.	"Emphasizing with ""henshi"""	pattern {  }	pattern {  }
+Subj. + 很是 + 会 / 能 + Verb	"Emphasizing with ""henshi"""	pattern {  }	pattern {  }
+足足 + Verb	"Expressing ""a full"" with ""zuzu"""	pattern {  }	pattern {  }
+Subj. + 一再 + Verb	"Expressing ""again and again"" with ""yizai"""	pattern {  }	pattern {  }
+凡是 + Noun + 都 / 就 / 一律 + Predicate	"Expressing ""all"" with ""fanshi"""	pattern {  }	pattern {  }
+凡(是) + Noun + 无不 / 均 + Predicate	"Expressing ""all"" with ""fanshi"""	pattern {  }	pattern {  }
+Subject + 向来（都） + Verb/Verb Phrase	"Expressing ""always previously"" with ""xianglai"""	pattern {  }	pattern {  }
+Subj. + 果然 + Predicate	"Expressing ""as expected"" with ""guoran"""	pattern {  }	pattern {  }
+Clause 1 ，果然 ，Clause 2	"Expressing ""as expected"" with ""guoran"""	pattern {  }	pattern {  }
+Subj. + 似乎 ⋯⋯	"Expressing ""as if"" with ""sihu"""	pattern {  }	pattern {  }
+A, Subject + 偏偏 + B	"Expressing ""contrary to expectations"" with ""pianpian"""	pattern {  }	pattern {  }
+(Subj. +) 再不 …… 也 ……（了）	"Expressing ""even so"" with ""zaibu... ye..."""	pattern {  }	pattern {  }
+一律 (+ 都) + Verb / Adj.	"Expressing ""no exception"" with ""yilu"""	pattern {  }	pattern {  }
+无非 + 是 + Verb Phrase	"Expressing ""nothing but"" with ""wufei"""	pattern {  }	pattern {  }
+无非 + 是 + Noun Phrase	"Expressing ""nothing but"" with ""wufei"""	pattern {  }	pattern {  }
+Subj. + 竟然 ⋯⋯	"Expressing the unexpected with ""jingran"""	pattern {  }	pattern {  }
+……，到时候 + ……	"Expressing ""when the time comes"" with ""dao shihou"""	pattern {  }	pattern {  }
+Subj. + 何必 + Predicate	"Expressing ""why"" with ""hebi"""	pattern {  }	pattern {  }
+何必⋯⋯ 呢 ？⋯⋯	"Expressing ""why"" with ""hebi"""	pattern {  }	pattern {  }
+Sentence + 来着	"Expressing that something has already happened with ""laizhe"""	pattern {  }	pattern {  }
+[Noun Phrase 1]，[Noun Phrase 2] + 以及 + [Noun Phrase 3]	"Expressing ""as well as"" with ""yiji"""	pattern {  }	pattern {  }
+（⋯⋯ ，）总之 ，⋯⋯	"Expressing ""in short"" with ""zongzhi"""	pattern {  }	pattern {  }
+Subject + Predicate, 则 + Subject + Predicate	"Indicating contrast with ""ze"""	pattern {  }	pattern {  }
+Clause 1，+ 而 Subject + 则 + Predicate	"Indicating contrast with ""ze"""	pattern {  }	pattern {  }
+以免 + Verb Phrase	"""In order to avoid"" with ""yimian"""	pattern {  }	pattern {  }
+以免 + Sentence	"""In order to avoid"" with ""yimian"""	pattern {  }	pattern {  }
+本 + Noun	"Expressing ""your side"" with ""ben"""	pattern {  }	pattern {  }
+Word + 性	"Indicating a characteristic with ""xing"""	pattern {  }	pattern {  }
+是否 + Verb / Adj.	"Expressing ""is or is not"" with ""shifou"""	pattern {  }	pattern {  }
+Noun + 之 + Noun	"Expressing possession with ""zhi"""	pattern {  }	pattern {  }
+Verb/Adjective + 与否	"Expressing ""whether or not"" with ""yufou"""	pattern {  }	pattern {  }
+Sentence + 呗	"Using the particle ""bei"""	pattern {  }	pattern {  }
+鉴于 + observation, conclusion/suggestion	"Expressing ""in light of"" with ""jianyu"""	pattern {  }	pattern {  }
+Subj. + 非(要) + [Verb Phrase] + 不可	"Adding emphasis with ""fei....buke"""	pattern {  }	pattern {  }
+非 + Subj. + [Verb Phrase] + 不可	"Adding emphasis with ""fei....buke"""	pattern {  }	pattern {  }
+非(要) + Subj. + [Verb Phrase] + 不可	"Adding emphasis with ""fei....buke"""	pattern {  }	pattern {  }
+岂不是 + rhetorical question	"""Could it be that"" with ""qibushi"""	pattern {  }	pattern {  }
+Subj. + 兼 + Verb + Noun 1 + 和 + Noun 2	"Expressing ""at the same time"" with ""jian"""	pattern {  }	pattern {  }
+Subj. + 是 + Noun 1 + 兼 +  Noun 2	"Expressing ""at the same time"" with ""jian"""	pattern {  }	pattern {  }
+Fact, + 莫非 + conjecture + (不成)?	"Expressing ""could it be possible that"" with ""mofei"""	pattern {  }	pattern {  }
+Subject + 莫非 + rhetorical question	"Expressing ""could it be possible that"" with ""mofei"""	pattern {  }	pattern {  }
+莫非 + Subject + rhetorical question	"Expressing ""could it be possible that"" with ""mofei"""	pattern {  }	pattern {  }
+Reasons, 由此 + results and implications	"Expressing ""from this"" with ""youci"""	pattern {  }	pattern {  }
+Statement,  非 (得) + Action + 不可 / 不行	"Expressing “must"" with ""feidei"""	pattern {  }	pattern {  }
+Topics or questions + 莫过于 + answer	"Expressing ""nothing is more...than"" with ""moguoyu"""	pattern {  }	pattern {  }
+与其 ⋯⋯ ，不如 ⋯⋯	"Expressing ""rather than..."" with ""yuqi... buru"""	pattern {  }	pattern {  }
+与其 ⋯⋯ ，Subj. + 宁可 / 宁愿 ⋯⋯	"Expressing ""rather than..."" with ""yuqi... buru"""	pattern {  }	pattern {  }
+与其说 + A，不如说 + B	"Expressing ""rather than..."" with ""yuqi... buru"""	pattern {  }	pattern {  }
+跟 + Noun/Pronoun/Adjective + 似的	"Expressing ""similar to"" with ""gen... shide"""	pattern {  }	pattern {  }
+Subject + 不愧是（不愧为）+ reputation	"Expressing ""to be worthy of"" with ""bukuishi"""	pattern {  }	pattern {  }
+Area of responsibility + 由 + Person(s) + 做主	"Expressing who is in charge with ""you... zuozhu"""	pattern {  }	pattern {  }
+一来 + Reason 1 ，二来 + Reason 2	"Stating two or more reasons with ""yilai...erlai"""	pattern {  }	pattern {  }
+以 + A + 为 + B	"Using ""yi... wei..."""	pattern {  }	pattern {  }
+谅 + Subject + verb phrase	"Expressing ""I bet"" using ""liang"""	pattern {  }	pattern {  }
+⋯⋯ 在于 ⋯⋯	"Expressing ""lies in"" with ""zaiyu"""	pattern {  }	pattern {  }
+⋯⋯ 在于 + Person / Party	"Expressing ""lies in"" with ""zaiyu"""	pattern {  }	pattern {  }
+Subject + 不屑(于) + verb/verb phrase	"Expressing something is ""not worth doing"" with ""buxie"""	pattern {  }	pattern {  }
+[Action] +  以便 （+ 能） + [Outcome]	"Facilitating an outcome with ""yibian"""	pattern {  }	pattern {  }
+Subj. + 因(为) + Cause + 而 + Result	"Using ""because"" with ""er"" to indicate effect"	pattern {  }	pattern {  }
+假使 + Statement + 就 + Result	"Expressing ""if… then…"" with ""jiashi"""	pattern {  }	pattern {  }
+Subj. + 为 + Goal + 而 + Efforts Made	"Explaining purpose with ""wei... er..."""	pattern {  }	pattern {  }
+Subj. + 不 + 为 + Goal + 而 + Efforts Made	"Explaining purpose with ""wei... er..."""	pattern {  }	pattern {  }
+以 + Subj. + 名义	"Expressing ""in the name of"" with ""yi... de mingyi"""	pattern {  }	pattern {  }
+Subj. + 连 ⋯⋯ 都 + Verb ，何况 ⋯⋯ 呢 ？	"Expressing ""let alone"" with ""hekuang"""	pattern {  }	pattern {  }
+Subj. + 连 ⋯⋯ 都 + 不 / 没 + Verb ，何况 ⋯⋯ 呢 ？	"Expressing ""let alone"" with ""hekuang"""	pattern {  }	pattern {  }
+Subj. (+ 尚且) + 都 / 就 ⋯⋯ ，（更）何况 ⋯⋯	"Expressing ""let alone"" with ""hekuang"""	pattern {  }	pattern {  }
