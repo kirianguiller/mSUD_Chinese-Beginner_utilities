@@ -1,3 +1,3 @@
-[submodule "SUD_Chinese-Beginner"]
-	path = SUD_Chinese-Beginner
-	url = git@github.com:surfacesyntacticud/SUD_Chinese-Beginner.git
+[submodule "mSUD_Chinese-Beginner"]
+	path = mSUD_Chinese-Beginner
+	url = git@github.com:surfacesyntacticud/mSUD_Chinese-Beginner.git

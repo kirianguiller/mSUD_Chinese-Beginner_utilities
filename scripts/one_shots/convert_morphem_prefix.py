@@ -1,7 +1,7 @@
 import os
 from conllup.conllup import readConlluFile, writeConlluFile
 
-PATH_CONLL_FOLDERS = 'SUD_Chinese-Beginner/'
+PATH_CONLL_FOLDERS = '../../../mSUD_Chinese-Beginner/'
 
 for file in os.listdir(PATH_CONLL_FOLDERS):
     path_file = os.path.join(PATH_CONLL_FOLDERS, file)
