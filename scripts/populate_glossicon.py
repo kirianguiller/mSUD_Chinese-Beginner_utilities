@@ -3,7 +3,7 @@ from conllup.conllup import readConlluFile
 
 
 PATH_CLOSSICON = "glossicon.txt"
-PATH_CONLLS = 'dump/parser'
+PATH_CONLLS = 'mSUD_Chinese-Beginner'
 
 glossicon = {}
 if os.path.exists(PATH_CLOSSICON):
