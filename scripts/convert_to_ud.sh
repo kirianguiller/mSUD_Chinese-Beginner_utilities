@@ -16,5 +16,5 @@ LEVELS=("A1" "A2" "B1" "B2" "C1")
 for LEVEL in "${LEVELS[@]}"; do
     # Construct the filename for each level
     INPUT_FILENAME="$PATH_CONLLUS_FOLDER/chinese-beginner.$LEVEL.mSUD.conllu"
-    opam exec -- grew transform -grs "$PATH_GREW_GRS" -config sud -i "$INPUT_FILENAME" -strat zh_SUD_to_UD_main >> "$OUTPUT_FILENAME"
+    opam exec -- grew transform -grs "$PATH_GREW_GRS" -config sud -i "$INPUT_FILENAME" -strat zh_mSUD_to_UD_main >> "$OUTPUT_FILENAME"
 done
